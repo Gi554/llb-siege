@@ -1,0 +1,10 @@
+# Netlify detects Next.js and runs it with its own runtime (server pages,
+# server actions, image optimisation). Secrets are set in the Netlify UI:
+# AUTH_SECRET, TURSO_DATABASE_URL, TURSO_AUTH_TOKEN, UPLOAD_STORAGE=netlify.
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NEXT_TELEMETRY_DISABLED = "1"
