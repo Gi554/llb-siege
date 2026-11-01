@@ -28,6 +28,7 @@ export const images = {
   terrasse: img("perspective-11-terrasse.jpg", "Terrasse et jardin bordés par un mur en enduit terracotta", 1024, 468, "Perspective 11 — terrasse"),
   plan: img("plan-amenage-rdc.jpg", "Plan aménagé du rez-de-chaussée", 3097, 2189, "Plan aménagé RDC"),
   elevation: img("elevation-facade-principale.jpg", "Élévation technique de la façade principale", 2264, 608, "Façade principale — élévation"),
+  facades: img("facades.jpg", "Planche des quatre façades du bâtiment", 3097, 2189, "Façades — principale, postérieure et latérales"),
 } satisfies Record<string, Media>;
 
 export const projet = {

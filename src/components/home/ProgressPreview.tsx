@@ -4,15 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 import { gsap, MOTION_OK, useGSAP } from "@/lib/gsap";
-import type { Stage, StageStatus } from "@/content/types";
+import { STATUS_LABEL as STATUS, type Stage } from "@/content/types";
 import Reveal, { Lines } from "@/components/ui/Reveal";
 import DemoBadge from "@/components/ui/DemoBadge";
-
-const STATUS: Record<StageStatus, string> = {
-  realise: "Réalisé",
-  "en-cours": "En cours",
-  "a-venir": "À venir",
-};
 
 export default function ProgressPreview({ stages }: { stages: Stage[] }) {
   const root = useRef<HTMLElement>(null);

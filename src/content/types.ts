@@ -31,9 +31,17 @@ export type Stage = {
   publishedAt?: string;
   /** Human label shown instead of a date (e.g. "Octobre 2026"). */
   dateLabel?: string;
+  /** Short key points shown as a list (deliverables, works done…). */
+  highlights?: string[];
   media: Media[];
   videos?: { src: string; poster?: string; title: string }[];
   source: Source;
+};
+
+export const STATUS_LABEL: Record<StageStatus, string> = {
+  realise: "Réalisé",
+  "en-cours": "En cours",
+  "a-venir": "À venir",
 };
 
 export type Comparison = {
