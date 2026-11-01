@@ -114,6 +114,13 @@ export const news: NewsItem[] = [
     category: "Annonce",
     dateLabel: "Octobre 2026",
     image: images.patio,
+    body: [
+      "Le dossier architectural du futur siège de la Ligue pour la Lecture de la Bible a été remis par NPS GROUP en octobre 2026. Il présente un bâtiment contemporain de plain-pied, organisé autour d'un patio central, dans un cadre de jardins et de terrasses.",
+      "Onze perspectives donnent à voir les principaux espaces : la façade sur rue et sa librairie vitrée, le hall d'accueil, les bureaux, la salle de réunion et de conférence, le patio, la cour et les jardins.",
+      "Le dossier comprend également le plan aménagé du rez-de-chaussée, les plans de plomberie et d'électricité, une coupe et les quatre façades du bâtiment.",
+      "Les façades associent enduit à effet béton, peinture acrylique, verre et enduit à effet terracotta, une palette sobre qui fait écho à l'environnement de Cotonou.",
+    ],
+    media: [images.facade, images.librairie, images.conference, images.jardin, images.plan, images.facades],
     source: "projet",
   },
   {
@@ -123,6 +130,10 @@ export const news: NewsItem[] = [
     category: "Compte rendu",
     dateLabel: "Date à venir",
     image: images.cour,
+    body: [
+      "Ceci est un article de démonstration. Les comptes rendus de visite de chantier seront rédigés et publiés par l'équipe de la Ligue depuis l'interface d'administration.",
+      "Chaque compte rendu pourra présenter les travaux réalisés, les prochaines étapes et une sélection de photographies du chantier.",
+    ],
     source: "demo",
   },
   {
@@ -132,6 +143,10 @@ export const news: NewsItem[] = [
     category: "Événement",
     dateLabel: "Date à venir",
     image: images.jardin,
+    body: [
+      "Ceci est un article de démonstration. Aucun événement n'est programmé à ce jour.",
+      "Les annonces d'événements liés au projet, comme le lancement des travaux ou l'inauguration, seront publiées ici avec leur date et leurs informations pratiques.",
+    ],
     source: "demo",
   },
 ];

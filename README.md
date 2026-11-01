@@ -20,8 +20,15 @@ conférence, patio central, jardins et terrasses) et permettra de suivre l'évol
 - le chantier étape par étape (visuels ronds, défilement horizontal) ;
 - actualités et pied de page.
 
-Pages disponibles : `/chantier` (chronologie interactive), `/galerie` (grille filtrable et plein écran),
-`/avant-apres` (comparateur trois modes). `/projet` et `/actualites` sont en préparation.
+Autres pages :
+
+- `/projet` : intentions, valeurs, plan, espaces, matériaux et façades du projet ;
+- `/chantier` : chronologie interactive des étapes ;
+- `/avant-apres` : comparateur en trois modes et points de vue suivis ;
+- `/galerie` : grille filtrable et visionneuse plein écran ;
+- `/actualites` et `/actualites/[slug]` : journal du chantier et pages d'article.
+
+Prochaine étape : l'interface d'administration.
 
 ## Contenus réels et données de démonstration
 

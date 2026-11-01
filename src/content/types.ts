@@ -71,8 +71,14 @@ export type NewsItem = {
   category: "Annonce" | "Compte rendu" | "Événement";
   dateLabel: string;
   image: Media;
+  /** Article paragraphs. */
+  body: string[];
+  /** Pictures shown at the end of the article. */
+  media?: Media[];
   source: Source;
 };
+
+export const NEWS_CATEGORIES = ["Annonce", "Compte rendu", "Événement"] as const;
 
 export type GalleryKind = "rendu" | "plan" | "photo";
 
