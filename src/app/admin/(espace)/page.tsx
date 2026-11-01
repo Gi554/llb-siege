@@ -100,15 +100,22 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
         <div className="grid content-center gap-3 border-t border-blanc/10 p-7 md:border-l md:border-t-0 md:p-10">
           <p className="font-display text-[15px] font-medium text-menthe">Raccourcis</p>
           {[
-            { label: "Ajouter une étape", hint: "Gestion des étapes" },
-            { label: "Importer des photos", hint: "Médiathèque" },
-            { label: "Rédiger une actualité", hint: "Actualités" },
-          ].map((s) => (
-            <span key={s.label} className="flex items-center justify-between rounded-full border border-blanc/15 px-5 py-3 text-[14px] text-blanc/45" aria-disabled="true">
-              {s.label}
-              <span className="text-[11px] uppercase tracking-[0.12em]">bientôt</span>
-            </span>
-          ))}
+            { label: "Ajouter une étape", href: "/admin/etapes/nouvelle" },
+            { label: "Importer des photos", href: null },
+            { label: "Rédiger une actualité", href: null },
+          ].map((s) =>
+            s.href ? (
+              <Link key={s.label} href={s.href} className="flex items-center justify-between rounded-full border border-blanc/25 px-5 py-3 text-[14px] text-blanc transition-colors hover:bg-blanc/10">
+                {s.label}
+                <span aria-hidden="true">→</span>
+              </Link>
+            ) : (
+              <span key={s.label} className="flex items-center justify-between rounded-full border border-blanc/15 px-5 py-3 text-[14px] text-blanc/45" aria-disabled="true">
+                {s.label}
+                <span className="text-[11px] uppercase tracking-[0.12em]">bientôt</span>
+              </span>
+            ),
+          )}
           <Link href="/" target="_blank" className="pill mt-2 h-12 bg-menthe text-[14px] text-foret hover:bg-blanc">
             Voir le site public ↗
           </Link>
