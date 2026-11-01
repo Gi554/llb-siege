@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap, MOTION_OK, useGSAP } from "@/lib/gsap";
 import { STATUS_LABEL, type Stage } from "@/content/types";
 
@@ -27,12 +27,60 @@ export default function StagesRail({ stages }: { stages: Stage[] }) {
     { scope: root },
   );
 
+  const [ends, setEnds] = useState({ start: true, end: false });
+  const drag = useRef<{ x: number; left: number; moved: boolean } | null>(null);
+
   const onScroll = () => {
     const el = rail.current!;
     const max = el.scrollWidth - el.clientWidth;
     setProgress(max > 0 ? el.scrollLeft / max : 0);
+    setEnds({ start: el.scrollLeft <= 4, end: el.scrollLeft >= max - 4 });
   };
-  const nudge = () => rail.current?.scrollBy({ left: rail.current.clientWidth * 0.8, behavior: "smooth" });
+  const step = (dir: 1 | -1) => {
+    const el = rail.current;
+    if (!el) return;
+    const item = el.querySelector<HTMLElement>("[data-sr-item]");
+    // One card (plus the gap) per click.
+    el.scrollBy({ left: dir * ((item?.offsetWidth ?? 240) + 40), behavior: "smooth" });
+  };
+
+  // Trackpad side swipes and shift+wheel scroll the rail; the smooth page
+  // scroll would otherwise swallow them. Vertical wheel keeps scrolling the page.
+  useEffect(() => {
+    const el = rail.current;
+    if (!el) return;
+    onScroll();
+    const onWheel = (e: WheelEvent) => {
+      const dx = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.shiftKey ? e.deltaY : 0;
+      if (!dx) return;
+      const max = el.scrollWidth - el.clientWidth;
+      if ((dx < 0 && el.scrollLeft <= 0) || (dx > 0 && el.scrollLeft >= max)) return;
+      e.preventDefault();
+      e.stopPropagation();
+      el.scrollLeft += dx;
+    };
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
+  }, []);
+
+  // Click-and-drag with a mouse (touch already scrolls natively).
+  const onPointerDown = (e: React.PointerEvent) => {
+    if (e.pointerType !== "mouse") return;
+    drag.current = { x: e.clientX, left: rail.current!.scrollLeft, moved: false };
+    rail.current!.style.scrollSnapType = "none";
+  };
+  const onPointerMove = (e: React.PointerEvent) => {
+    const d = drag.current;
+    if (!d) return;
+    const dx = e.clientX - d.x;
+    if (Math.abs(dx) > 4) d.moved = true;
+    rail.current!.scrollLeft = d.left - dx;
+  };
+  const endDrag = () => {
+    if (!drag.current) return;
+    drag.current = null;
+    rail.current!.style.scrollSnapType = "";
+  };
 
   return (
     <section ref={root} aria-label="Le chantier, étape par étape" className="relative overflow-hidden bg-blanc py-20 md:py-28">
@@ -43,7 +91,7 @@ export default function StagesRail({ stages }: { stages: Stage[] }) {
         style={{ clipPath: "polygon(0 0, 55% 0, 100% 100%, 0 100%)" }}
       />
 
-      <div className="relative grid gap-12 md:grid-cols-[34%_1fr] md:items-center">
+      <div className="relative grid grid-cols-1 gap-12 md:grid-cols-[34%_minmax(0,1fr)] md:items-center">
         <div data-sr-head className="pl-[var(--gutter)] pr-8 md:pl-[max(var(--gutter),7vw)]">
           <span data-sr-rule aria-hidden="true" className="block h-px w-full max-w-[12rem] bg-terracotta" />
           <h2 className="display mt-8 text-[clamp(2.3rem,3.4vw,3rem)] leading-[1] text-encre">
@@ -62,8 +110,19 @@ export default function StagesRail({ stages }: { stages: Stage[] }) {
           </Link>
         </div>
 
-        <div>
-          <ul ref={rail} onScroll={onScroll} className="no-scrollbar flex snap-x snap-mandatory gap-10 overflow-x-auto px-[var(--gutter)] pb-2 md:pl-0">
+        <div className="min-w-0">
+          <ul
+            ref={rail}
+            onScroll={onScroll}
+            onPointerDown={onPointerDown}
+            onPointerMove={onPointerMove}
+            onPointerUp={endDrag}
+            onPointerLeave={endDrag}
+            onDragStart={(e) => e.preventDefault()}
+            tabIndex={0}
+            aria-label="Étapes du chantier, faire défiler horizontalement"
+            className="no-scrollbar flex cursor-grab snap-x snap-mandatory gap-10 overflow-x-auto overscroll-x-contain px-[var(--gutter)] pb-2 select-none active:cursor-grabbing md:pl-0"
+          >
             {stages.map((s, k) => (
               <li key={s.slug} data-sr-item className="w-[220px] shrink-0 snap-start text-center md:w-[240px]">
                 <div className="relative mx-auto aspect-square w-[190px] overflow-hidden rounded-full bg-lin md:w-[210px]">
@@ -89,9 +148,22 @@ export default function StagesRail({ stages }: { stages: Stage[] }) {
             <span className="relative block h-[3px] w-[60px] overflow-hidden rounded-full bg-encre/10" aria-hidden="true">
               <span className="absolute inset-y-0 left-0 w-1/2 rounded-full bg-encre/60 transition-transform duration-150" style={{ transform: `translateX(${progress * 100}%)` }} />
             </span>
-            <button type="button" onClick={nudge} className="text-[12px] text-encre/70 underline underline-offset-4">
-              Étapes suivantes
-            </button>
+            <div className="flex gap-2">
+              {([-1, 1] as const).map((dir) => (
+                <button
+                  key={dir}
+                  type="button"
+                  onClick={() => step(dir)}
+                  disabled={dir < 0 ? ends.start : ends.end}
+                  aria-label={dir < 0 ? "Étapes précédentes" : "Étapes suivantes"}
+                  className="grid h-11 w-11 place-items-center rounded-full border border-encre/20 text-encre transition-colors hover:border-foret hover:bg-foret hover:text-blanc disabled:pointer-events-none disabled:opacity-30"
+                >
+                  <svg viewBox="0 0 24 24" className={`h-4 w-4 ${dir < 0 ? "rotate-180" : ""}`} fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>
