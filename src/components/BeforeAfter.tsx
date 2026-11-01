@@ -9,7 +9,15 @@ import { gsap, MOTION_OK } from "@/lib/gsap";
  * Drag (mouse, touch or keyboard) to compare two images shot from the same
  * angle. A native range input carries the accessible value.
  */
-export default function BeforeAfter({ comparison, className = "" }: { comparison: Comparison; className?: string }) {
+export default function BeforeAfter({
+  comparison,
+  className = "",
+  frameClass = "aspect-[16/9] md:aspect-[21/9]",
+}: {
+  comparison: Comparison;
+  className?: string;
+  frameClass?: string;
+}) {
   const box = useRef<HTMLDivElement>(null);
   const [pos, setPos] = useState(50);
   const dragging = useRef(false);
@@ -51,7 +59,7 @@ export default function BeforeAfter({ comparison, className = "" }: { comparison
     <figure className={className}>
       <div
         ref={box}
-        className="relative aspect-[16/9] cursor-ew-resize touch-pan-y select-none overflow-hidden rounded-[2px] bg-lin md:aspect-[21/9]"
+        className={`relative cursor-ew-resize touch-pan-y select-none overflow-hidden rounded-[2px] bg-lin ${frameClass}`}
         onPointerDown={(e) => {
           dragging.current = true;
           fromClientX(e.clientX);
@@ -65,7 +73,7 @@ export default function BeforeAfter({ comparison, className = "" }: { comparison
         <span className="eyebrow pointer-events-none absolute left-4 top-4 rounded-full bg-encre/70 px-3 py-1.5 text-[0.62rem] text-ivoire backdrop-blur">
           {before.label}{before.date ? ` · ${before.date}` : ""}
         </span>
-        <span className="eyebrow pointer-events-none absolute right-4 top-4 rounded-full bg-encre/70 px-3 py-1.5 text-[0.62rem] text-ivoire backdrop-blur">
+        <span className="eyebrow pointer-events-none absolute bottom-4 right-4 rounded-full bg-encre/70 md:bottom-auto md:top-4 px-3 py-1.5 text-[0.62rem] text-ivoire backdrop-blur">
           {after.label}{after.date ? ` · ${after.date}` : ""}
         </span>
 
