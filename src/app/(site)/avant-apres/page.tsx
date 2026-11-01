@@ -3,6 +3,7 @@ import Image from "next/image";
 import SplitHero from "@/components/SplitHero";
 import BeforeAfter from "@/components/BeforeAfter";
 import { images } from "@/content/projet";
+import { getSettings } from "@/lib/settings";
 import CompareHero from "@/components/avant-apres/CompareHero";
 import CompareStudio from "@/components/avant-apres/CompareStudio";
 import Viewpoints from "@/components/avant-apres/Viewpoints";
@@ -33,13 +34,13 @@ const PROTOCOL = [
 ];
 
 export default async function AvantApresPage() {
-  const [comparisons, viewpoints] = await Promise.all([getComparisons(), getViewpoints()]);
+  const [comparisons, viewpoints, s] = await Promise.all([getComparisons(), getViewpoints(), getSettings()]);
   const [featured, ...others] = comparisons;
 
   return (
     <>
       {featured ? (
-        <CompareHero comparison={featured} />
+        <CompareHero comparison={featured} text={s["avantApres.text"]} />
       ) : (
         <SplitHero eyebrow="Le projet et la réalité" title="Avant / Après." text={<p>Les premières comparaisons entre le projet et le chantier seront publiées ici.</p>}>
           <Image src={images.facade.src} alt={images.facade.alt} fill priority sizes="(min-width: 768px) 66vw, 100vw" className="object-cover" />

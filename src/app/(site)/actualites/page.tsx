@@ -5,6 +5,7 @@ import SplitHero from "@/components/SplitHero";
 import NewsList from "@/components/actualites/NewsList";
 import NextLinks from "@/components/NextLinks";
 import { getNews } from "@/lib/content";
+import { getSettings } from "@/lib/settings";
 
 export const metadata: Metadata = {
   title: "Actualités",
@@ -12,15 +13,15 @@ export const metadata: Metadata = {
 };
 
 export default async function ActualitesPage() {
-  const news = await getNews();
+  const [news, s] = await Promise.all([getNews(), getSettings()]);
   const lead = news.find((n) => n.source !== "demo") ?? news[0];
 
   return (
     <>
       <SplitHero
         eyebrow="Actualités"
-        title="Le journal du chantier."
-        text={<p>Annonces, comptes rendus de visite et événements : toutes les nouvelles du futur siège, au fil de la construction.</p>}
+        title={s["actualites.title"]}
+        text={<p>{s["actualites.text"]}</p>}
         footer={
           <Link href="#a-la-une" className="pill h-[60px] w-[217px] bg-menthe text-[15px] text-foret hover:bg-blanc">
             Lire les actualités

@@ -4,7 +4,7 @@ import SplitHero from "@/components/SplitHero";
 import { images } from "@/content/projet";
 import { STATUS_LABEL, type Stage, type StageStatus } from "@/content/types";
 
-export default function ChantierHero({ stages }: { stages: Stage[] }) {
+export default function ChantierHero({ stages, title, text }: { stages: Stage[]; title: string; text: string }) {
   const done = stages.filter((s) => s.status === "realise");
   const last = done[done.length - 1];
   const count = (st: StageStatus) => stages.filter((s) => s.status === st).length;
@@ -12,12 +12,9 @@ export default function ChantierHero({ stages }: { stages: Stage[] }) {
   return (
     <SplitHero
       eyebrow="Suivi de construction"
-      title="Évolution des travaux."
+      title={title}
       text={
-        <p>
-          De la conception à l&apos;inauguration, chaque étape du chantier est documentée ici par des photographies, des
-          vidéos et des comptes rendus.
-        </p>
+        <p>{text}</p>
       }
       footer={
         <Link href="#chronologie" className="pill h-[60px] w-[217px] bg-menthe text-[15px] text-foret hover:bg-blanc">

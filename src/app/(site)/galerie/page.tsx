@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getSettings } from "@/lib/settings";
 import GalleryHero from "@/components/galerie/GalleryHero";
 import Gallery from "@/components/galerie/Gallery";
 import { getGallery } from "@/lib/content";
@@ -10,12 +11,12 @@ export const metadata: Metadata = {
 };
 
 export default async function GaleriePage() {
-  const { items, espaces, kinds, stages } = await getGallery();
+  const [{ items, espaces, kinds, stages }, s] = await Promise.all([getGallery(), getSettings()]);
   const documented = new Set(items.map((g) => g.etape)).size;
 
   return (
     <>
-      <GalleryHero items={items} documented={documented} />
+      <GalleryHero items={items} documented={documented} text={s["galerie.text"]} />
       <Gallery items={items} espaces={espaces} kinds={kinds} stages={stages} />
     </>
   );

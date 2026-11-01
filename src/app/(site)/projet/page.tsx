@@ -7,6 +7,7 @@ import Reveal from "@/components/ui/Reveal";
 import PlanSection from "@/components/projet/PlanSection";
 import MaterialsRail from "@/components/projet/MaterialsRail";
 import { getProjet } from "@/lib/content";
+import { getSettings } from "@/lib/settings";
 
 export const metadata: Metadata = {
   title: "Le projet",
@@ -15,13 +16,13 @@ export const metadata: Metadata = {
 };
 
 export default async function ProjetPage() {
-  const { projet, images, intentions, planRooms, facts, spaces, materials, actors } = await getProjet();
+  const [{ projet, images, intentions, planRooms, facts, spaces, materials, actors }, s] = await Promise.all([getProjet(), getSettings()]);
 
   return (
     <>
       <SplitHero
         eyebrow="Le projet"
-        title="Un siège à l'image de sa mission."
+        title={s["projet.title"]}
         text={<p>{projet.descriptif[0]}</p>}
         footer={
           <Link href="#plan" className="pill h-[60px] w-[217px] bg-menthe text-[15px] text-foret hover:bg-blanc">
