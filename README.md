@@ -104,3 +104,15 @@ npm run dev
 ```
 
 Puis ouvrir http://localhost:3000 (site) et http://localhost:3000/admin (administration).
+
+## Mise en ligne sur Netlify
+
+Netlify n'a pas de disque persistant : la base passe sur [Turso](https://turso.tech) (compatible SQLite) et les images envoyées sur Netlify Blobs. Le code choisit tout seul selon les variables d'environnement ; sans elles, il reste en mode local (fichier SQLite et dossier `storage/uploads`), par exemple sur un VPS.
+
+1. Créer une base Turso et un jeton d'accès, puis les écrire dans un fichier `.env.turso` (non versionné) :
+   ```bash
+   TURSO_DATABASE_URL="libsql://…"
+   TURSO_AUTH_TOKEN="…"
+   ```
+2. Créer les tables et charger les contenus : `npm run db:turso`.
+3. Sur Netlify, importer le dépôt GitHub (la configuration est dans `netlify.toml`) et définir les variables : `AUTH_SECRET`, `TURSO_DATABASE_URL`, `TURSO_AUTH_TOKEN` et `UPLOAD_STORAGE=netlify`.

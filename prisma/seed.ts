@@ -1,12 +1,12 @@
 // Fills the database with the content of the architectural file (and the
 // clearly flagged demo entries). Safe to run several times: records are
 // upserted by their unique keys.
-import { PrismaClient } from "@prisma/client";
+import { createPrismaClient } from "../src/lib/prisma";
 import bcrypt from "bcryptjs";
 import { gallery } from "../src/content/galerie";
 import { comparisons, news, stages, viewpoints } from "../src/content/chantier";
 
-const prisma = new PrismaClient();
+const prisma = createPrismaClient();
 
 async function main() {
   // Media: every picture of the gallery (all the file's renders and plans).

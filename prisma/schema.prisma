@@ -3,7 +3,9 @@
 // and DATABASE_URL to move to a hosted database.
 
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  // Netlify functions run on Amazon Linux (OpenSSL 3).
+  binaryTargets = ["native", "rhel-openssl-3.0.x"]
 }
 
 datasource db {
