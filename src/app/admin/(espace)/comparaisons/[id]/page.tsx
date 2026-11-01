@@ -5,7 +5,7 @@ import { db } from "@/lib/db";
 import { requireUser } from "@/lib/auth";
 import { PageHeader, StatePill } from "@/components/admin/ui";
 import ComparisonForm from "@/components/admin/ComparisonForm";
-import { pickerMedia } from "../data";
+import { pickerMedia } from "@/lib/picker";
 
 export const metadata: Metadata = { title: "Modifier une comparaison" };
 export const dynamic = "force-dynamic";

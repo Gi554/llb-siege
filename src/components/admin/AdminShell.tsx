@@ -15,7 +15,7 @@ const NAV: Item[] = [
   { href: "/admin/etapes", label: "Étapes du chantier", ready: true },
   { href: "/admin/mediatheque", label: "Médiathèque", ready: true },
   { href: "/admin/comparaisons", label: "Avant / Après", ready: true },
-  { href: "/admin/actualites", label: "Actualités", ready: false },
+  { href: "/admin/actualites", label: "Actualités", ready: true },
   { href: "/admin/contenus", label: "Textes des pages", ready: false },
   { href: "/admin/utilisateurs", label: "Utilisateurs", ready: false, adminOnly: true },
 ];

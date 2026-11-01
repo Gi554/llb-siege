@@ -6,7 +6,7 @@ import { requireUser } from "@/lib/auth";
 import { ConfirmAction, Notice, PageHeader, StatePill } from "@/components/admin/ui";
 import ViewpointRow from "@/components/admin/ViewpointRow";
 import { deleteComparison } from "./actions";
-import { pickerMedia } from "./data";
+import { pickerMedia } from "@/lib/picker";
 
 export const metadata: Metadata = { title: "Avant / Après" };
 export const dynamic = "force-dynamic";

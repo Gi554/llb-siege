@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default async function ActualitesPage() {
   const news = await getNews();
-  const lead = news.find((n) => n.source === "projet") ?? news[0];
+  const lead = news.find((n) => n.source !== "demo") ?? news[0];
 
   return (
     <>
