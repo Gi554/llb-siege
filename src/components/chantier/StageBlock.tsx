@@ -17,7 +17,7 @@ const layoutFor = (i: number) => (i === 0 ? LAYOUT[0] : LAYOUT[1 + ((i - 1) % 4)
 const MAX_TILES = LAYOUT.length;
 
 const STATUS_STYLE = {
-  realise: "bg-or text-foret",
+  realise: "bg-menthe text-foret",
   "en-cours": "bg-terracotta text-ivoire",
   "a-venir": "border border-encre/25 text-encre/70",
 } as const;
@@ -46,7 +46,7 @@ const StageBlock = forwardRef<HTMLElement, Props>(function StageBlock({ stage, n
         data-stage-dot
         aria-hidden="true"
         className={`absolute -left-8 -top-[7px] h-[13px] md:-left-14 w-[13px] rounded-full border-2 border-ivoire ${
-          stage.status === "realise" ? "bg-or" : stage.status === "en-cours" ? "bg-terracotta" : "bg-sable"
+          stage.status === "realise" ? "bg-foret" : stage.status === "en-cours" ? "bg-terracotta" : "bg-sable"
         }`}
       />
 
@@ -55,7 +55,7 @@ const StageBlock = forwardRef<HTMLElement, Props>(function StageBlock({ stage, n
           <p className="eyebrow text-pierre">
             Étape {n} <span className="text-encre/30">/ {String(total).padStart(2, "0")}</span>
           </p>
-          <p data-stage-num aria-hidden="true" className="display mt-4 text-[clamp(5.5rem,13vw,13rem)] leading-[0.8] text-encre/[0.07]">
+          <p data-stage-num aria-hidden="true" className="outline-text mt-4 text-[clamp(5.5rem,12vw,11rem)] leading-[0.8] text-sauge [--stroke:2px]">
             {n}
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -106,7 +106,7 @@ const StageBlock = forwardRef<HTMLElement, Props>(function StageBlock({ stage, n
                 data-media
                 onClick={() => onOpen(stage.media, i, stage.title)}
                 aria-label={more > 0 ? `Voir les ${stage.media.length} photographies de l'étape` : `Agrandir : ${m.caption ?? m.alt}`}
-                className={`group relative overflow-hidden rounded-[2px] bg-lin ${layoutFor(i)}`}
+                className={`group relative overflow-hidden bg-ivoire ${layoutFor(i)}`}
               >
                 <Image
                   src={m.src}

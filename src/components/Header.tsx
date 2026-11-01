@@ -16,7 +16,9 @@ export default function Header() {
   const [bar, setBar] = useState(true);
   const [atTop, setAtTop] = useState(true);
   const pathname = usePathname();
-  const home = pathname === "/";
+  // Pages opening with a split hero get the green block behind the logo.
+  const [split, setSplit] = useState(false);
+  useEffect(() => setSplit(!!document.querySelector("[data-split-hero]")), [pathname]);
 
   // The dark block behind the logo only exists from tablet width up.
   const [wide, setWide] = useState(false);
@@ -76,8 +78,8 @@ export default function Header() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
-  // On the home page the hero's green panel rises behind the logo while at the top.
-  const panel = home && atTop && !open && wide;
+  // The hero's green panel rises behind the logo while at the top.
+  const panel = split && atTop && !open && wide;
 
   return (
     <>

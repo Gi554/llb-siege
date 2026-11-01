@@ -34,10 +34,10 @@ export default async function AvantApresPage() {
 
   return (
     <>
-      <CompareHero before={featured.before} after={featured.after} />
+      <CompareHero comparison={featured} />
 
-      <section data-header="on-light" aria-label="Comparaison à la une" className="bg-ivoire py-[clamp(6rem,12vw,11rem)]">
-        <div className="wrap">
+      <section aria-label="Comparaison à la une" className="bg-blanc py-[clamp(6rem,12vw,11rem)]">
+        <div className="container-site">
           <div className="grid gap-8 md:grid-cols-12">
             <div className="md:col-span-7">
               <Reveal className="flex items-center gap-4">
@@ -66,23 +66,22 @@ export default async function AvantApresPage() {
 
       <Viewpoints items={viewpoints} />
 
-      <section data-header="on-dark" aria-label="Protocole photographique" className="grain relative bg-foret py-[clamp(6rem,12vw,11rem)] text-ivoire">
-        <div className="wrap">
-          <Reveal className="flex items-center gap-4">
-            <span className="eyebrow text-or">03</span>
-            <span className="h-px w-10 bg-ivoire/25" />
-            <span className="eyebrow text-ivoire/60">Le protocole</span>
+      <section aria-label="Protocole photographique" className="bg-ocre py-[clamp(6rem,10vw,9rem)]">
+        <div className="container-site">
+          <Reveal as="h2" className="outline-text stroke-ink text-[clamp(3.6rem,8vw,7.5rem)] [--stroke:2.5px]">
+            <span className="block">Même angle,</span>
+            <span className="block">autre moment</span>
           </Reveal>
-          <Reveal as="h2" mode="lines" className="display mt-6 max-w-4xl text-[clamp(2.6rem,5.6vw,5.6rem)]">
-            <Lines text="Même angle," />
-            <Lines text="autre moment." className="italic text-or" />
-          </Reveal>
-          <ol className="mt-16 grid gap-12 border-t border-ivoire/15 pt-12 md:grid-cols-3 md:gap-[var(--gutter)]">
+          <span aria-hidden="true" className="mt-10 block h-[2px] w-[180px] bg-encre" />
+          <ol className="mt-14 grid gap-12 md:grid-cols-3 md:gap-10">
             {PROTOCOL.map((p, i) => (
               <Reveal as="li" key={p.title} delay={i * 0.12}>
-                <span className="display block text-[clamp(3.5rem,6vw,5.5rem)] leading-none text-or">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="mt-6 text-xl font-medium">{p.title}</h3>
-                <p className="mt-3 max-w-sm leading-relaxed text-ivoire/65">{p.text}</p>
+                <span className="block h-px w-full bg-encre/70" aria-hidden="true" />
+                <span className="outline-text stroke-ink mt-6 block text-[clamp(3rem,5vw,4.5rem)] leading-none [--stroke:1.5px]">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-5 font-sans text-[1.5rem] font-medium leading-tight text-encre">{p.title}</h3>
+                <p className="mono mt-3 max-w-sm text-[13px] text-encre/80">{p.text}</p>
               </Reveal>
             ))}
           </ol>

@@ -103,7 +103,7 @@ export default function Timeline({ stages }: { stages: Stage[] }) {
   const current = visible[active] ?? visible[0];
 
   return (
-    <section ref={root} data-header="on-light" aria-label="Chronologie du chantier" className="bg-ivoire pb-32 pt-[clamp(5rem,9vw,8rem)]">
+    <section ref={root} aria-label="Chronologie du chantier" id="chronologie" className="scroll-mt-24 bg-blanc pb-32 pt-[clamp(5rem,9vw,8rem)]">
       <div className="wrap">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div>
@@ -129,7 +129,7 @@ export default function Timeline({ stages }: { stages: Stage[] }) {
                     setActive(0);
                   }}
                   className={`flex items-center gap-2 rounded-full border px-4 py-2 text-sm transition-colors duration-300 disabled:cursor-not-allowed disabled:opacity-35 ${
-                    on ? "border-encre bg-encre text-ivoire" : "border-encre/20 hover:border-encre"
+                    on ? "border-foret bg-foret text-blanc" : "border-encre/20 hover:border-foret"
                   }`}
                 >
                   {f.label}
@@ -165,7 +165,7 @@ export default function Timeline({ stages }: { stages: Stage[] }) {
           dock ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-[150%] opacity-0"
         }`}
       >
-        <div className="flex max-w-full items-center gap-3 rounded-full bg-encre/90 py-2 pl-2 pr-5 text-ivoire shadow-[0_20px_60px_rgba(0,0,0,.25)] backdrop-blur-md">
+        <div className="flex max-w-full items-center gap-3 rounded-full bg-foret py-2 pl-2 pr-5 text-blanc shadow-[0_20px_60px_rgba(0,0,0,.25)] backdrop-blur-md">
           <button
             type="button"
             onClick={() => scrollToStage(Math.max(0, active - 1))}
@@ -187,7 +187,7 @@ export default function Timeline({ stages }: { stages: Stage[] }) {
                 >
                   <span
                     className={`block h-1.5 rounded-full transition-all duration-500 ${i === active ? "w-8" : "w-1.5 group-hover:w-3"} ${
-                      s.status === "realise" ? "bg-or" : s.status === "en-cours" ? "bg-terracotta" : i === active ? "bg-ivoire" : "bg-ivoire/35"
+                      s.status === "realise" ? "bg-menthe" : s.status === "en-cours" ? "bg-terracotta" : i === active ? "bg-blanc" : "bg-blanc/35"
                     }`}
                   />
                 </button>
