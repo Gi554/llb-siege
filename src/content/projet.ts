@@ -48,6 +48,33 @@ export const projet = {
   ],
 };
 
+// The four ideas of the architectural description, in the file's own terms.
+export const intentions = [
+  {
+    title: "Structurer et rayonner",
+    text: "La construction du siège s'inscrit dans une dynamique de structuration et de rayonnement de l'institution.",
+  },
+  {
+    title: "Une architecture accueillante",
+    text: "Une architecture contemporaine, accueillante et représentative de la mission de la Ligue, qui renforce son image.",
+  },
+  {
+    title: "Une composition lisible",
+    text: "Des volumes de plain-pied, des lignes épurées, des proportions maîtrisées et une organisation lisible autour d'un patio central.",
+  },
+  {
+    title: "Une identité locale",
+    text: "Des matériaux et des tonalités qui font écho à l'environnement de Cotonou, pour une architecture sobre, cohérente et pérenne.",
+  },
+];
+
+export const actors = [
+  { label: "Maître d'ouvrage", value: "Ligue pour la Lecture de la Bible" },
+  { label: "Architecture", value: "NPS GROUP" },
+  { label: "Lieu", value: "Cotonou, Bénin" },
+  { label: "Dossier architectural", value: "Octobre 2026" },
+];
+
 export const facts = [
   { value: 1, label: "Niveau", note: "Une composition de plain-pied" },
   { value: 1, label: "Patio central", note: "Le cœur autour duquel tout s'organise" },
