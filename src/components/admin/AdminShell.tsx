@@ -12,7 +12,7 @@ type Item = { href: string; label: string; ready: boolean; adminOnly?: boolean }
 // `ready: false` sections are announced but arrive in the next releases.
 const NAV: Item[] = [
   { href: "/admin", label: "Tableau de bord", ready: true },
-  { href: "/admin/etapes", label: "Étapes du chantier", ready: false },
+  { href: "/admin/etapes", label: "Étapes du chantier", ready: true },
   { href: "/admin/mediatheque", label: "Médiathèque", ready: false },
   { href: "/admin/comparaisons", label: "Avant / Après", ready: false },
   { href: "/admin/actualites", label: "Actualités", ready: false },
