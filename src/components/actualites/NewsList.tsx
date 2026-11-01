@@ -12,7 +12,7 @@ const ALL = "Toutes";
 export default function NewsList({ items }: { items: NewsItem[] }) {
   const root = useRef<HTMLElement>(null);
   const [cat, setCat] = useState<string>(ALL);
-  const featured = items.find((n) => n.source === "projet") ?? items[0];
+  const featured = items.find((n) => n.source !== "demo") ?? items[0];
   const rest = useMemo(
     () => items.filter((n) => n !== featured && (cat === ALL || n.category === cat)),
     [items, featured, cat],

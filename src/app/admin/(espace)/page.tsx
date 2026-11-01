@@ -102,7 +102,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
           {[
             { label: "Ajouter une étape", href: "/admin/etapes/nouvelle" },
             { label: "Importer des photos", href: "/admin/mediatheque" },
-            { label: "Rédiger une actualité", href: null },
+            { label: "Rédiger une actualité", href: "/admin/actualites/nouvelle" },
           ].map((s) =>
             s.href ? (
               <Link key={s.label} href={s.href} className="flex items-center justify-between rounded-full border border-blanc/25 px-5 py-3 text-[14px] text-blanc transition-colors hover:bg-blanc/10">

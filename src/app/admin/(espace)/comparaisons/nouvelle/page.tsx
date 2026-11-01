@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { requireUser } from "@/lib/auth";
 import { PageHeader } from "@/components/admin/ui";
 import ComparisonForm from "@/components/admin/ComparisonForm";
-import { pickerMedia } from "../data";
+import { pickerMedia } from "@/lib/picker";
 
 export const metadata: Metadata = { title: "Nouvelle comparaison" };
 export const dynamic = "force-dynamic";
