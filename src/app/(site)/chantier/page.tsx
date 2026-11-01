@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getSettings } from "@/lib/settings";
 import ChantierHero from "@/components/chantier/ChantierHero";
 import Timeline from "@/components/chantier/Timeline";
 import NextLinks from "@/components/NextLinks";
@@ -11,11 +12,11 @@ export const metadata: Metadata = {
 };
 
 export default async function ChantierPage() {
-  const stages = await getStages();
+  const [stages, s] = await Promise.all([getStages(), getSettings()]);
 
   return (
     <>
-      <ChantierHero stages={stages} />
+      <ChantierHero stages={stages} title={s["chantier.title"]} text={s["chantier.text"]} />
       <Timeline stages={stages} />
       <NextLinks
         items={[

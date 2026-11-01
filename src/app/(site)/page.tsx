@@ -6,13 +6,14 @@ import Included from "@/components/home/Included";
 import StagesRail from "@/components/home/StagesRail";
 import Journal from "@/components/home/Journal";
 import { getNews, getProjet, getStages } from "@/lib/content";
+import { getSettings, heroImage } from "@/lib/settings";
 
 export default async function HomePage() {
-  const [{ spaces }, stages, news] = await Promise.all([getProjet(), getStages(), getNews(3)]);
+  const [{ spaces }, stages, news, s] = await Promise.all([getProjet(), getStages(), getNews(3), getSettings()]);
 
   return (
     <>
-      <Hero />
+      <Hero eyebrow={s["home.eyebrow"]} title={s["home.title"]} text={s["home.text"]} image={await heroImage(s)} />
       <Features />
       <LookAround />
       <SpacesCarousel spaces={spaces} />

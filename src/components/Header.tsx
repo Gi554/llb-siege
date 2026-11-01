@@ -4,11 +4,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { gsap, MOTION_OK, useGSAP } from "@/lib/gsap";
-import { announcement, headerLinks, nav } from "@/content/navigation";
+import { announcement as fallback, headerLinks, nav } from "@/content/navigation";
 import { projet } from "@/content/projet";
 import { Logo } from "@/components/ui/LampMark";
 
-export default function Header() {
+/** `announcement` comes from the page texts (null when the bar is switched off). */
+export default function Header({ announcement = fallback }: { announcement?: { text: string; href: string; cta: string } | null }) {
   const menu = useRef<HTMLDivElement>(null);
   const toggle = useRef<HTMLButtonElement>(null);
   const tl = useRef<gsap.core.Timeline | null>(null);
@@ -83,7 +84,7 @@ export default function Header() {
 
   return (
     <>
-      {bar && (
+      {bar && announcement && (
         <div className="relative z-50 bg-brume">
           <p className="wrap flex min-h-11 items-center justify-center gap-2 py-2 pr-12 text-center text-[11px] uppercase tracking-[0.12em] text-encre/80">
             <span>{announcement.text}</span>

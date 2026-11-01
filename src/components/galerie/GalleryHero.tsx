@@ -15,7 +15,7 @@ const FRAMES = [
   { media: images.direction, cls: "hidden md:block right-[12%] bottom-[14%] w-[20vw] aspect-[4/5] md:w-[12vw]", speed: -40 },
 ];
 
-export default function GalleryHero({ items, documented }: { items: GalleryItem[]; documented: number }) {
+export default function GalleryHero({ items, documented, text }: { items: GalleryItem[]; documented: number; text: string }) {
   const root = useRef<HTMLElement>(null);
 
   useGSAP(
@@ -66,7 +66,7 @@ export default function GalleryHero({ items, documented }: { items: GalleryItem[
       <div className="absolute inset-x-0 bottom-0 flex flex-col items-center px-[var(--gutter)] pb-10 text-center">
         <p data-gh-fade className="font-display text-[15px] font-medium text-encre">Le projet en images</p>
         <p data-gh-fade className="mono mt-3 max-w-md text-[13px] text-encre/75">
-          Perspectives, plans et, bientôt, photographies du chantier : toutes les images du futur siège réunies.
+          {text}
         </p>
         <p data-gh-fade className="mt-4 flex items-center gap-4 text-[12px] uppercase tracking-[0.12em] text-encre/60">
           <span><span className="tabular-nums text-encre">{items.length}</span> images</span>

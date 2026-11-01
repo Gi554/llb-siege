@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -12,11 +12,11 @@ type Item = { href: string; label: string; ready: boolean; adminOnly?: boolean }
 // `ready: false` sections are announced but arrive in the next releases.
 const NAV: Item[] = [
   { href: "/admin", label: "Tableau de bord", ready: true },
-  { href: "/admin/etapes", label: "Étapes du chantier", ready: true },
-  { href: "/admin/mediatheque", label: "Médiathèque", ready: true },
-  { href: "/admin/comparaisons", label: "Avant / Après", ready: true },
-  { href: "/admin/actualites", label: "Actualités", ready: true },
-  { href: "/admin/contenus", label: "Textes des pages", ready: false },
+  { href: "/admin/etapes", label: "Ã‰tapes du chantier", ready: true },
+  { href: "/admin/mediatheque", label: "MÃ©diathÃ¨que", ready: true },
+  { href: "/admin/comparaisons", label: "Avant / AprÃ¨s", ready: true },
+  { href: "/admin/actualites", label: "ActualitÃ©s", ready: true },
+  { href: "/admin/contenus", label: "Textes des pages", ready: true },
   { href: "/admin/utilisateurs", label: "Utilisateurs", ready: false, adminOnly: true },
 ];
 
@@ -45,7 +45,7 @@ export default function AdminShell({ user, children }: { user: SessionUser; chil
           ) : (
             <li key={i.href} className="flex items-center justify-between rounded-full px-4 py-2.5 text-[14px] text-blanc/35" aria-disabled="true">
               {i.label}
-              <span className="rounded-full border border-blanc/20 px-2 py-0.5 text-[10px] uppercase tracking-[0.12em]">bientôt</span>
+              <span className="rounded-full border border-blanc/20 px-2 py-0.5 text-[10px] uppercase tracking-[0.12em]">bientÃ´t</span>
             </li>
           ),
         )}
@@ -57,16 +57,16 @@ export default function AdminShell({ user, children }: { user: SessionUser; chil
           </span>
           <span className="min-w-0 text-[13px] leading-tight">
             <span className="block truncate text-blanc">{user.name}</span>
-            <span className="block text-blanc/55">{user.role === "ADMIN" ? "Administrateur" : "Éditeur"}</span>
+            <span className="block text-blanc/55">{user.role === "ADMIN" ? "Administrateur" : "Ã‰diteur"}</span>
           </span>
         </div>
         <div className="flex flex-wrap gap-2">
           <Link href="/" target="_blank" className="rounded-full border border-blanc/25 px-4 py-2 text-[12px] text-blanc/85 hover:bg-blanc/10">
-            Voir le site ↗
+            Voir le site â†—
           </Link>
           <form action={logout}>
             <button type="submit" className="rounded-full border border-blanc/25 px-4 py-2 text-[12px] text-blanc/85 hover:bg-blanc/10">
-              Se déconnecter
+              Se dÃ©connecter
             </button>
           </form>
         </div>
