@@ -10,6 +10,11 @@ export async function middleware(req: NextRequest) {
   const session = await readSession(req.cookies.get(SESSION_COOKIE)?.value);
   if (session) return NextResponse.next();
 
+  // API calls get a JSON error instead of a redirect to the login page.
+  if (pathname.startsWith("/admin/api/")) {
+    return NextResponse.json({ error: "Session expirée, reconnectez-vous." }, { status: 401 });
+  }
+
   const url = req.nextUrl.clone();
   url.pathname = "/admin/connexion";
   url.search = pathname === "/admin" ? "" : `?suite=${encodeURIComponent(pathname)}`;

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useActionState, useRef, useState } from "react";
 import { saveStage, type StageFormState } from "@/app/admin/(espace)/etapes/actions";
 import { Field, inputClass, Notice, SubmitButton } from "./ui";
@@ -100,8 +101,12 @@ export default function StageForm({ values, media }: { values: StageValues; medi
           })}
         </ul>
         <p className="mono mt-4 text-[12px] text-encre/55">
-          Une photo appartient à une seule étape : la sélectionner ici la retire de son étape actuelle. L&apos;import de nouvelles
-          photos se fera depuis la médiathèque.
+          Une photo appartient à une seule étape : la sélectionner ici la retire de son étape actuelle. Pour ajouter de nouvelles
+          photos, importez-les depuis la{" "}
+          <Link href="/admin/mediatheque" className="underline underline-offset-2 hover:text-encre">
+            médiathèque
+          </Link>{" "}
+          en choisissant directement cette étape.
         </p>
       </section>
 

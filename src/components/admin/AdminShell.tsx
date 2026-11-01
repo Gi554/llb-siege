@@ -13,7 +13,7 @@ type Item = { href: string; label: string; ready: boolean; adminOnly?: boolean }
 const NAV: Item[] = [
   { href: "/admin", label: "Tableau de bord", ready: true },
   { href: "/admin/etapes", label: "Étapes du chantier", ready: true },
-  { href: "/admin/mediatheque", label: "Médiathèque", ready: false },
+  { href: "/admin/mediatheque", label: "Médiathèque", ready: true },
   { href: "/admin/comparaisons", label: "Avant / Après", ready: false },
   { href: "/admin/actualites", label: "Actualités", ready: false },
   { href: "/admin/contenus", label: "Textes des pages", ready: false },
