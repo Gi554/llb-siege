@@ -25,7 +25,7 @@ export default function Hero() {
   );
 
   return (
-    <section ref={root} className="relative bg-blanc">
+    <section ref={root} data-split-hero className="relative bg-blanc">
       <div className="grid min-h-[calc(100svh-var(--header-h)-44px)] md:grid-cols-[34%_1fr]">
         <div className="relative z-10 flex flex-col justify-center bg-foret px-[var(--gutter)] py-16 text-blanc md:py-12 md:pl-[max(var(--gutter),7vw)] md:pr-[3vw]">
           <p data-hero-fade className="font-display text-[15px] font-medium">

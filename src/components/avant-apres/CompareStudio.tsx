@@ -41,7 +41,7 @@ export default function CompareStudio({ comparison, dark = false }: { comparison
               aria-controls={`${id}-panel`}
               onClick={() => setMode(m.key)}
               className={`rounded-full px-4 py-2 text-sm transition-colors duration-300 ${
-                on ? (dark ? "bg-ivoire text-foret" : "bg-encre text-ivoire") : dark ? "text-ivoire/70 hover:text-ivoire" : "text-encre/65 hover:text-encre"
+                on ? (dark ? "bg-menthe text-foret" : "bg-foret text-blanc") : dark ? "text-ivoire/70 hover:text-ivoire" : "text-encre/65 hover:text-encre"
               }`}
             >
               {m.label}

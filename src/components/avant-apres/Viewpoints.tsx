@@ -39,8 +39,8 @@ export default function Viewpoints({ items }: { items: Viewpoint[] }) {
   );
 
   return (
-    <section ref={root} data-header="on-light" aria-label="Points de vue suivis" className="bg-lin py-[clamp(6rem,12vw,11rem)]">
-      <div className="wrap">
+    <section ref={root} aria-label="Points de vue suivis" id="points-de-vue" className="scroll-mt-24 bg-ivoire py-[clamp(6rem,12vw,11rem)]">
+      <div className="container-site">
         <div className="grid gap-8 md:grid-cols-12">
           <div className="md:col-span-7">
             <Reveal className="flex items-center gap-4">

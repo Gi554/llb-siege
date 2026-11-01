@@ -165,7 +165,7 @@ export default function Gallery({ items, espaces, kinds, stages }: Props) {
   );
 
   return (
-    <section ref={root} data-header="on-light" aria-label="Images du projet" className="bg-ivoire pb-32">
+    <section ref={root} aria-label="Images du projet" className="bg-blanc pb-32">
       <div data-g-filters className="wrap border-t border-encre/15 pt-10">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between">
           <h2 className="display text-[clamp(2rem,3.6vw,3.4rem)]">
@@ -191,7 +191,7 @@ export default function Gallery({ items, espaces, kinds, stages }: Props) {
                 disabled={n === 0}
                 onClick={() => update({ espace: e.slug })}
                 className={`flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-sm transition-colors duration-300 disabled:cursor-not-allowed disabled:opacity-35 ${
-                  on ? "border-encre bg-encre text-ivoire" : "border-encre/20 hover:border-encre"
+                  on ? "border-foret bg-foret text-blanc" : "border-encre/20 hover:border-foret"
                 }`}
               >
                 {e.label}
@@ -231,7 +231,7 @@ export default function Gallery({ items, espaces, kinds, stages }: Props) {
                   onPointerEnter={() => showCursor(true)}
                   onPointerLeave={() => showCursor(false)}
                   aria-label={`Ouvrir en plein écran : ${g.caption ?? g.alt}`}
-                  className="group relative block h-full w-full overflow-hidden rounded-[2px] bg-lin md:cursor-none"
+                  className="group relative block h-full w-full overflow-hidden bg-ivoire md:cursor-none"
                 >
                   <Image
                     src={g.src}
@@ -255,7 +255,7 @@ export default function Gallery({ items, espaces, kinds, stages }: Props) {
         ) : (
           <div className="flex flex-col items-center gap-6 py-24 text-center">
             <p className="display text-3xl">Aucune image pour cette sélection.</p>
-            <button type="button" onClick={() => update(EMPTY)} className="rounded-full bg-encre px-6 py-3 text-sm text-ivoire">
+            <button type="button" onClick={() => update(EMPTY)} className="pill h-[52px] bg-foret px-6 text-sm text-blanc">
               Voir toutes les images
             </button>
           </div>
@@ -279,10 +279,10 @@ export default function Gallery({ items, espaces, kinds, stages }: Props) {
         <button
           type="button"
           onClick={scrollToFilters}
-          className="flex items-center gap-3 rounded-full bg-encre/90 py-2 pl-5 pr-2 text-sm text-ivoire shadow-[0_20px_60px_rgba(0,0,0,.25)] backdrop-blur-md"
+          className="flex items-center gap-3 rounded-full bg-foret py-2 pl-5 pr-2 text-sm text-blanc shadow-[0_20px_60px_rgba(0,0,0,.25)] backdrop-blur-md"
         >
           <span className="tabular-nums">{visible.length} images</span>
-          <span className="grid h-9 place-items-center rounded-full bg-ivoire px-4 text-encre">
+          <span className="grid h-9 place-items-center rounded-full bg-menthe px-4 text-foret">
             Filtrer{active > 0 ? ` (${active})` : ""}
           </span>
         </button>

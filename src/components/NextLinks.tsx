@@ -5,7 +5,7 @@ type Item = { href: string; eyebrow: string; title: string; text: string };
 /** Two large links closing a page, pointing to related sections. */
 export default function NextLinks({ items }: { items: [Item, Item] }) {
   return (
-    <section data-header="on-light" aria-label="Pour aller plus loin" className="border-t border-encre/10 bg-lin">
+    <section aria-label="Pour aller plus loin" className="border-t border-encre/10 bg-lin">
       <div className="wrap grid md:grid-cols-2">
         {items.map((c, i) => (
           <Link
