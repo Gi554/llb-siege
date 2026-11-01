@@ -28,7 +28,6 @@ Autres pages :
 - `/galerie` : grille filtrable et visionneuse plein écran ;
 - `/actualites` et `/actualites/[slug]` : journal du chantier et pages d'article.
 
-Prochaine étape : l'interface d'administration.
 
 ## Contenus réels et données de démonstration
 
@@ -84,9 +83,11 @@ Accessible sur `/admin`. Deux rôles : **administrateur** (tout, y compris les c
 **éditeur** (contenus). Base SQLite gérée par Prisma ; pour passer sur PostgreSQL, changer
 `provider` dans `prisma/schema.prisma` et `DATABASE_URL`.
 
-Livré à ce stade : connexion sécurisée, tableau de bord, étapes du chantier, médiathèque
-(import multiple, légendes, albums, étapes). À venir : comparaisons, actualités, textes des
-pages, utilisateurs.
+Sections : tableau de bord, étapes du chantier, médiathèque (import multiple, légendes,
+albums), comparaisons avant / après et points de vue, actualités, textes des pages,
+utilisateurs (réservé aux administrateurs) et « Mon compte » (changement de mot de passe).
+Un compte désactivé perd l'accès immédiatement ; le site garde toujours au moins un
+administrateur actif.
 
 Les photos importées sont converties en WebP (2560 px maximum), débarrassées de leurs
 métadonnées (dont la position GPS) et stockées dans `UPLOAD_DIR` (par défaut
