@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
+import SplitHero from "@/components/SplitHero";
+import BeforeAfter from "@/components/BeforeAfter";
+import { images } from "@/content/projet";
 import CompareHero from "@/components/avant-apres/CompareHero";
 import CompareStudio from "@/components/avant-apres/CompareStudio";
 import Viewpoints from "@/components/avant-apres/Viewpoints";
@@ -30,39 +34,64 @@ const PROTOCOL = [
 
 export default async function AvantApresPage() {
   const [comparisons, viewpoints] = await Promise.all([getComparisons(), getViewpoints()]);
-  const featured = comparisons[0];
+  const [featured, ...others] = comparisons;
 
   return (
     <>
-      <CompareHero comparison={featured} />
+      {featured ? (
+        <CompareHero comparison={featured} />
+      ) : (
+        <SplitHero eyebrow="Le projet et la réalité" title="Avant / Après." text={<p>Les premières comparaisons entre le projet et le chantier seront publiées ici.</p>}>
+          <Image src={images.facade.src} alt={images.facade.alt} fill priority sizes="(min-width: 768px) 66vw, 100vw" className="object-cover" />
+        </SplitHero>
+      )}
 
-      <section aria-label="Comparaison à la une" className="bg-blanc py-[clamp(6rem,12vw,11rem)]">
-        <div className="container-site">
-          <div className="grid gap-8 md:grid-cols-12">
-            <div className="md:col-span-7">
-              <Reveal className="flex items-center gap-4">
-                <span className="eyebrow text-terracotta">01</span>
-                <span className="h-px w-10 bg-encre/25" />
-                <span className="eyebrow text-pierre">À la une</span>
-              </Reveal>
-              <Reveal as="h2" mode="lines" className="display mt-6 text-[clamp(2.6rem,5.6vw,5.6rem)]">
-                <Lines text={featured.title} />
-                <Lines text="du plan au rendu." className="italic text-terracotta" />
+      {featured && (
+        <section aria-label="Comparaison à la une" className="bg-blanc py-[clamp(6rem,12vw,11rem)]">
+          <div className="container-site">
+            <div className="grid gap-8 md:grid-cols-12">
+              <div className="md:col-span-7">
+                <Reveal className="flex items-center gap-4">
+                  <span className="eyebrow text-terracotta">01</span>
+                  <span className="h-px w-10 bg-encre/25" />
+                  <span className="eyebrow text-pierre">À la une</span>
+                </Reveal>
+                <Reveal as="h2" mode="lines" className="display mt-6 text-[clamp(2.6rem,5.6vw,5.6rem)]">
+                  <Lines text={featured.title} />
+                  <Lines text={`${featured.before.label.toLowerCase()} / ${featured.after.label.toLowerCase()}`} className="italic text-terracotta" />
+                </Reveal>
+              </div>
+              <Reveal className="flex flex-col gap-5 text-encre/70 md:col-span-4 md:col-start-9 md:self-end" delay={0.15}>
+                <p>
+                  {featured.before.label}
+                  {featured.before.date ? ` (${featured.before.date})` : ""} face à {featured.after.label.toLowerCase()}
+                  {featured.after.date ? ` (${featured.after.date})` : ""}. Faites glisser, superposez ou comparez côte à côte.
+                </p>
+                {featured.source === "demo" && <DemoBadge className="self-start text-terracotta" label="Comparaison de démonstration" />}
               </Reveal>
             </div>
-            <Reveal className="flex flex-col gap-5 text-encre/70 md:col-span-4 md:col-start-9 md:self-end" delay={0.15}>
-              <p>
-                L&apos;élévation technique de NPS GROUP face au rendu architectural. Dès les premières photographies du
-                chantier, la réalité prendra la place du rendu.
-              </p>
-              {featured.source === "demo" && <DemoBadge className="self-start text-terracotta" label="Comparaison de démonstration" />}
+            <Reveal className="mt-12">
+              <CompareStudio comparison={featured} />
             </Reveal>
           </div>
-          <Reveal className="mt-12">
-            <CompareStudio comparison={featured} />
-          </Reveal>
-        </div>
-      </section>
+        </section>
+      )}
+
+      {others.length > 0 && (
+        <section aria-label="Autres comparaisons" className="bg-blanc pb-[clamp(5rem,10vw,9rem)]">
+          <div className="container-site">
+            <h2 className="display text-[clamp(2rem,3.4vw,3rem)] text-encre">Autres comparaisons</h2>
+            <ul className="mt-10 grid gap-10 md:grid-cols-2">
+              {others.map((c) => (
+                <Reveal as="li" key={c.slug}>
+                  <BeforeAfter comparison={c} frameClass="aspect-[4/3]" />
+                  <p className="mt-4 font-sans text-[1.15rem] font-medium text-encre">{c.title}</p>
+                </Reveal>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       <Viewpoints items={viewpoints} />
 
