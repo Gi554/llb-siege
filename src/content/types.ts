@@ -52,6 +52,18 @@ export type Comparison = {
   source: Source;
 };
 
+/**
+ * A fixed camera position: the architectural render, then the site photo
+ * taken from the same angle once it exists.
+ */
+export type Viewpoint = {
+  slug: string;
+  title: string;
+  espace: string;
+  render: Media;
+  photo?: Media & { date: string };
+};
+
 export type NewsItem = {
   slug: string;
   title: string;

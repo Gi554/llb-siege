@@ -1,4 +1,4 @@
-import type { Comparison, NewsItem, Stage } from "./types";
+import type { Comparison, NewsItem, Stage, Viewpoint } from "./types";
 import { images } from "./projet";
 
 // Only the first stage is real (the architectural file, dated October 2026).
@@ -91,6 +91,19 @@ export const comparisons: Comparison[] = [
     after: { ...images.facade1, label: "Rendu architectural" },
     source: "demo",
   },
+];
+
+// Camera positions to repeat on site so each render gets its real photo.
+// No photo exists yet: every viewpoint is waiting for its first shot.
+export const viewpoints: Viewpoint[] = [
+  { slug: "facade-rue", title: "Façade sur rue", espace: "Extérieur", render: images.facade1 },
+  { slug: "entree", title: "Entrée et portail", espace: "Extérieur", render: images.facade2 },
+  { slug: "librairie", title: "La librairie", espace: "Intérieur", render: images.librairie },
+  { slug: "patio", title: "Le patio central", espace: "Intérieur", render: images.patio },
+  { slug: "conference", title: "Salle de conférence", espace: "Intérieur", render: images.conference },
+  { slug: "jardin", title: "Jardin et pergola", espace: "Extérieur", render: images.jardin },
+  { slug: "cour", title: "La cour", espace: "Extérieur", render: images.cour },
+  { slug: "accueil", title: "Hall d'accueil", espace: "Intérieur", render: images.accueil },
 ];
 
 export const news: NewsItem[] = [
