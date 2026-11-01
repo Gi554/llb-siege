@@ -63,7 +63,7 @@ export default function Preloader() {
       <div className="flex items-end justify-between gap-6">
         <div className="relative h-[1.2em] overflow-hidden font-display text-2xl italic md:text-4xl">
           {projet.values.map((v) => (
-            <span key={v} data-word className="absolute left-0 top-0 translate-y-[110%] capitalize">
+            <span key={v} data-word className="absolute left-0 top-0 capitalize" style={{ transform: "translateY(110%)" }}>
               {v}
             </span>
           ))}

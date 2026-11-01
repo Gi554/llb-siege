@@ -2,10 +2,11 @@
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Flip } from "gsap/Flip";
 import { useGSAP } from "@gsap/react";
 
 if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, useGSAP);
+  gsap.registerPlugin(ScrollTrigger, Flip, useGSAP);
   gsap.defaults({ ease: "expo.out", duration: 1.2 });
 }
 
@@ -30,4 +31,4 @@ export function markReady() {
   window.dispatchEvent(new Event(READY_EVENT));
 }
 
-export { gsap, ScrollTrigger, useGSAP };
+export { gsap, Flip, ScrollTrigger, useGSAP };

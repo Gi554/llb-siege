@@ -3,6 +3,7 @@
 // any component.
 import { comparisons, news, stages } from "@/content/chantier";
 import { facts, images, materials, planRooms, projet, spaces } from "@/content/projet";
+import { gallery, galleryEspaces, galleryKinds } from "@/content/galerie";
 
 export async function getProjet() {
   return { projet, facts, images, materials, planRooms, spaces };
@@ -14,6 +15,10 @@ export async function getStages() {
 
 export async function getComparisons() {
   return comparisons;
+}
+
+export async function getGallery() {
+  return { items: gallery, espaces: galleryEspaces, kinds: galleryKinds, stages: stages.map(({ slug, title }) => ({ slug, title })) };
 }
 
 export async function getNews(limit?: number) {

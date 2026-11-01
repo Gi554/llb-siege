@@ -62,6 +62,19 @@ export type NewsItem = {
   source: Source;
 };
 
+export type GalleryKind = "rendu" | "plan" | "photo";
+
+export type GalleryItem = Media & {
+  id: string;
+  /** Space slug (see `galleryEspaces`). */
+  espace: string;
+  /** Stage slug the image is attached to. */
+  etape: string;
+  kind: GalleryKind;
+  dateLabel: string;
+  source: Source;
+};
+
 export type Material = {
   name: string;
   note: string;
