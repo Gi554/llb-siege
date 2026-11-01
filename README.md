@@ -84,8 +84,13 @@ Accessible sur `/admin`. Deux rôles : **administrateur** (tout, y compris les c
 **éditeur** (contenus). Base SQLite gérée par Prisma ; pour passer sur PostgreSQL, changer
 `provider` dans `prisma/schema.prisma` et `DATABASE_URL`.
 
-Livré à ce stade : connexion sécurisée, tableau de bord. À venir : étapes, médiathèque,
-comparaisons, actualités, textes des pages, utilisateurs.
+Livré à ce stade : connexion sécurisée, tableau de bord, étapes du chantier, médiathèque
+(import multiple, légendes, albums, étapes). À venir : comparaisons, actualités, textes des
+pages, utilisateurs.
+
+Les photos importées sont converties en WebP (2560 px maximum), débarrassées de leurs
+métadonnées (dont la position GPS) et stockées dans `UPLOAD_DIR` (par défaut
+`storage/uploads`, hors dépôt). Ce dossier doit être sauvegardé avec la base.
 
 ## Démarrer
 

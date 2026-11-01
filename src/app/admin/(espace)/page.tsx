@@ -101,7 +101,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
           <p className="font-display text-[15px] font-medium text-menthe">Raccourcis</p>
           {[
             { label: "Ajouter une étape", href: "/admin/etapes/nouvelle" },
-            { label: "Importer des photos", href: null },
+            { label: "Importer des photos", href: "/admin/mediatheque" },
             { label: "Rédiger une actualité", href: null },
           ].map((s) =>
             s.href ? (
