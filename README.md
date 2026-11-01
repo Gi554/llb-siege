@@ -62,25 +62,39 @@ et **DM Mono** (textes courants). Motif : la lampe (Psaume 119.105), reprise dan
 ## Architecture
 
 ```
+prisma/
+  schema.prisma   modèle de données (étapes, médias, comparaisons, actualités, utilisateurs)
+  seed.ts         données initiales issues du dossier architectural
 src/
-  app/            routes (accueil + pages en préparation)
-  components/     en-tête, pied de page, comparateur, préchargement
-    home/         sections de la page d'accueil
-    ui/           révélations et badges
-  content/        modèle de contenu typé (types.ts) et données
-  lib/content.ts  couche d'accès aux données (à brancher sur un CMS / une API)
+  app/(site)/     pages publiques
+  app/admin/      back-office (connexion, tableau de bord…)
+  components/     en-tête, pied de page, sections, back-office
+  content/        modèle typé, description fixe du projet, données initiales
+  lib/content.ts  accès aux données pour le site public
+  lib/auth.ts     sessions et rôles
 public/images/projet/  perspectives et plans extraits du dossier architectural
 ```
 
-Les composants ne lisent les données qu'à travers `src/lib/content.ts`. Le back-office prévu
-(étapes, médiathèque, comparaisons, actualités, utilisateurs et rôles) pourra remplacer les modules
-de `src/content/` sans modifier l'interface.
+Le site public lit les contenus éditables (étapes, médias, comparaisons, actualités) dans la base,
+uniquement à travers `src/lib/content.ts`.
+
+## Back-office
+
+Accessible sur `/admin`. Deux rôles : **administrateur** (tout, y compris les comptes) et
+**éditeur** (contenus). Base SQLite gérée par Prisma ; pour passer sur PostgreSQL, changer
+`provider` dans `prisma/schema.prisma` et `DATABASE_URL`.
+
+Livré à ce stade : connexion sécurisée, tableau de bord. À venir : étapes, médiathèque,
+comparaisons, actualités, textes des pages, utilisateurs.
 
 ## Démarrer
 
 ```bash
 npm install
+cp .env.example .env   # puis renseigner AUTH_SECRET, ADMIN_EMAIL et ADMIN_PASSWORD
+npm run db:push        # crée la base
+npm run db:seed        # charge les contenus et crée le premier administrateur
 npm run dev
 ```
 
-Puis ouvrir http://localhost:3000.
+Puis ouvrir http://localhost:3000 (site) et http://localhost:3000/admin (administration).
