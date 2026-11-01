@@ -1,9 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Mono, DM_Sans, Urbanist } from "next/font/google";
 import "./globals.css";
-import SmoothScroll from "@/components/SmoothScroll";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 
 // Urbanist and DM Sans are variable fonts: no weight list needed.
 const urbanist = Urbanist({ subsets: ["latin"], variable: "--font-urbanist", display: "swap" });
@@ -35,15 +32,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={`${urbanist.variable} ${dmSans.variable} ${dmMono.variable}`}>
-      <body>
-        <a href="#contenu" className="sr-only z-[200] rounded bg-blanc px-4 py-2 text-encre focus:not-sr-only focus:fixed focus:left-4 focus:top-4">
-          Aller au contenu
-        </a>
-        <SmoothScroll />
-        <Header />
-        <main id="contenu">{children}</main>
-        <Footer />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

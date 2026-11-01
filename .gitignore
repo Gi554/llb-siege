@@ -15,3 +15,8 @@ next-env.d.ts
 .DS_Store
 npm-debug.log*
 .vercel
+
+# local data
+/prisma/*.db
+/prisma/*.db-journal
+/storage/

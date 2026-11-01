@@ -1,0 +1,148 @@
+// Content of the LLB headquarters site, edited from the back-office.
+// SQLite for a self-contained setup; switch `provider` to "postgresql"
+// and DATABASE_URL to move to a hosted database.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+/// "ADMIN" manages everything including users; "EDITOR" manages content.
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String
+  passwordHash String
+  role         String   @default("EDITOR")
+  active       Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+/// A picture of the project: architectural render, technical plan or site photo.
+model Media {
+  id        String   @id @default(cuid())
+  src       String   @unique
+  alt       String
+  caption   String?
+  width     Int
+  height    Int
+  /// "rendu" | "plan" | "photo"
+  kind      String   @default("photo")
+  /// Space slug used by the gallery filters.
+  espace    String   @default("exterieur")
+  album     String?
+  dateLabel String?
+  /// "projet" = from the architectural file, "chantier" = site photo, "demo"
+  source    String   @default("chantier")
+  /// Shown in the public gallery.
+  inGallery Boolean  @default(true)
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+
+  stage   Stage?  @relation(fields: [stageId], references: [id], onDelete: SetNull)
+  stageId String?
+
+  newsCover       News[]       @relation("NewsCover")
+  news            News[]       @relation("NewsMedia")
+  comparisonsFrom Comparison[] @relation("Before")
+  comparisonsTo   Comparison[] @relation("After")
+  viewpointRender Viewpoint[]  @relation("Render")
+  viewpointPhoto  Viewpoint[]  @relation("Photo")
+}
+
+/// A construction stage of the timeline.
+model Stage {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  title       String
+  description String
+  /// "realise" | "en-cours" | "a-venir"
+  status      String    @default("a-venir")
+  publishedAt DateTime?
+  dateLabel   String?
+  /// One highlight per line.
+  highlights  String    @default("")
+  order       Int       @default(0)
+  /// "DRAFT" | "PUBLISHED"
+  state       String    @default("DRAFT")
+  source      String    @default("chantier")
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  media  Media[]
+  videos Video[]
+}
+
+model Video {
+  id      String  @id @default(cuid())
+  src     String
+  poster  String?
+  title   String
+  stage   Stage   @relation(fields: [stageId], references: [id], onDelete: Cascade)
+  stageId String
+}
+
+/// Two pictures taken from the same angle, compared with a slider.
+model Comparison {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  before      Media    @relation("Before", fields: [beforeId], references: [id])
+  beforeId    String
+  beforeLabel String
+  beforeDate  String?
+  after       Media    @relation("After", fields: [afterId], references: [id])
+  afterId     String
+  afterLabel  String
+  afterDate   String?
+  featured    Boolean  @default(false)
+  state       String   @default("DRAFT")
+  source      String   @default("chantier")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+/// A fixed camera position: the render, then the site photo from the same spot.
+model Viewpoint {
+  id        String  @id @default(cuid())
+  slug      String  @unique
+  title     String
+  espace    String
+  render    Media   @relation("Render", fields: [renderId], references: [id])
+  renderId  String
+  photo     Media?  @relation("Photo", fields: [photoId], references: [id])
+  photoId   String?
+  photoDate String?
+  order     Int     @default(0)
+}
+
+model News {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  title       String
+  excerpt     String
+  /// "Annonce" | "Compte rendu" | "Événement"
+  category    String
+  dateLabel   String
+  publishedAt DateTime?
+  /// Paragraphs separated by a blank line.
+  body        String
+  cover       Media     @relation("NewsCover", fields: [coverId], references: [id])
+  coverId     String
+  media       Media[]   @relation("NewsMedia")
+  state       String    @default("DRAFT")
+  source      String    @default("chantier")
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+/// Editable page texts and featured pictures, by key.
+model Setting {
+  key   String @id
+  value String
+}

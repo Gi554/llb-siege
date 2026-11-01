@@ -4,18 +4,19 @@ import Image from "next/image";
 import { useRef } from "react";
 import { gsap, MOTION_OK, onReady, useGSAP } from "@/lib/gsap";
 import type { GalleryItem } from "@/content/types";
+import { images } from "@/content/projet";
 
-// Floating collage around the title; each frame drifts at its own speed.
+// Floating collage around the title (fixed renders of the architectural file);
+// each frame drifts at its own speed.
 const FRAMES = [
-  { id: "patio", cls: "left-[4%] top-[18%] w-[22vw] aspect-[3/4] md:w-[15vw]", speed: -30 },
-  { id: "librairie-hd", cls: "right-[5%] top-[12%] w-[30vw] aspect-[4/3] md:w-[20vw]", speed: -55 },
-  { id: "jardin", cls: "hidden md:block left-[14%] bottom-[8%] w-[26vw] aspect-[4/3] md:w-[17vw]", speed: -80 },
-  { id: "direction", cls: "hidden md:block right-[12%] bottom-[14%] w-[20vw] aspect-[4/5] md:w-[12vw]", speed: -40 },
+  { media: images.patio, cls: "left-[4%] top-[18%] w-[22vw] aspect-[3/4] md:w-[15vw]", speed: -30 },
+  { media: images.librairieHd, cls: "right-[5%] top-[12%] w-[30vw] aspect-[4/3] md:w-[20vw]", speed: -55 },
+  { media: images.jardin, cls: "hidden md:block left-[14%] bottom-[8%] w-[26vw] aspect-[4/3] md:w-[17vw]", speed: -80 },
+  { media: images.direction, cls: "hidden md:block right-[12%] bottom-[14%] w-[20vw] aspect-[4/5] md:w-[12vw]", speed: -40 },
 ];
 
 export default function GalleryHero({ items, documented }: { items: GalleryItem[]; documented: number }) {
   const root = useRef<HTMLElement>(null);
-  const byId = (id: string) => items.find((i) => i.id === id)!;
 
   useGSAP(
     () => {
@@ -56,14 +57,11 @@ export default function GalleryHero({ items, documented }: { items: GalleryItem[
         </h1>
       </div>
 
-      {FRAMES.map((f) => {
-        const m = byId(f.id);
-        return (
-          <div key={f.id} data-gh-frame data-speed={f.speed} className={`absolute overflow-hidden shadow-[0_30px_60px_rgba(20,31,28,.15)] ${f.cls}`} style={{ clipPath: "inset(0% 0% 0% 0%)" }}>
-            <Image src={m.src} alt="" fill priority sizes="(min-width: 768px) 22vw, 32vw" className="object-cover" />
-          </div>
-        );
-      })}
+      {FRAMES.map((f) => (
+        <div key={f.media.src} data-gh-frame data-speed={f.speed} className={`absolute overflow-hidden shadow-[0_30px_60px_rgba(20,31,28,.15)] ${f.cls}`} style={{ clipPath: "inset(0% 0% 0% 0%)" }}>
+          <Image src={f.media.src} alt="" fill priority sizes="(min-width: 768px) 22vw, 32vw" className="object-cover" />
+        </div>
+      ))}
 
       <div className="absolute inset-x-0 bottom-0 flex flex-col items-center px-[var(--gutter)] pb-10 text-center">
         <p data-gh-fade className="font-display text-[15px] font-medium text-encre">Le projet en images</p>
