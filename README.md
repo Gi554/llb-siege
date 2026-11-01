@@ -9,18 +9,19 @@ conférence, patio central, jardins et terrasses) et permettra de suivre l'évol
 
 ## Version actuelle
 
-Première version haute fidélité de la **page d'accueil** :
+**Page d'accueil** :
 
-- préchargement et hero plein écran animés ;
-- manifeste dont les mots s'éclairent au défilement ;
-- patio révélé à travers une arche, en écho aux panneaux sculptés du projet ;
-- défilement horizontal des sept espaces du bâtiment ;
-- plan aménagé, chiffres clés et matériaux de façade ;
-- aperçu de la chronologie du chantier ;
-- comparateur avant / après (souris, tactile, clavier) ;
-- verset, actualités et pied de page.
+- bandeau d'annonce, en-tête blanc avec bouton « Suivre le chantier » ;
+- hero en deux parties : panneau vert profond et façade du bâtiment ;
+- grille des quatre usages du siège et images superposées ;
+- bandeau « Visitez le siège » au titre détouré ;
+- carrousel des sept espaces sur le mot détouré « espaces » ;
+- ce que réunit le siège (icônes) ;
+- le chantier étape par étape (visuels ronds, défilement horizontal) ;
+- actualités et pied de page.
 
-Les autres pages (`/projet`, `/chantier`, `/avant-apres`, `/galerie`, `/actualites`) sont en préparation.
+Pages disponibles : `/chantier` (chronologie interactive), `/galerie` (grille filtrable et plein écran),
+`/avant-apres` (comparateur trois modes). `/projet` et `/actualites` sont en préparation.
 
 ## Contenus réels et données de démonstration
 
@@ -33,15 +34,16 @@ Les autres pages (`/projet`, `/chantier`, `/avant-apres`, `/galerie`, `/actualit
 
 | Rôle | Couleur |
 | --- | --- |
-| Ivoire (fond clair) | `#F3EEE5` |
-| Lin | `#E9E1D3` |
-| Vert forêt (fond sombre) | `#0D2620` |
-| Terracotta | `#B4532E` |
-| Or (lumière, accents) | `#D8A23B` |
-| Encre (texte) | `#1B1813` |
+| Blanc (fond principal) | `#FFFFFF` |
+| Ivoire (fond chaud) | `#F1ECE0` |
+| Vert forêt (fond sombre, boutons) | `#062521` |
+| Menthe (titres sur vert, boutons) | `#C1E2BC` |
+| Ocre clair (bandeau) | `#F6E2A8` |
+| Terracotta (accents) | `#B4532E` |
+| Encre (texte) | `#141F1C` |
 
-Typographies : **Fraunces** (titres, italique expressif) et **Inter Tight** (texte courant).
-Motifs : l'arche des panneaux du patio, la lampe (Psaume 119.105), les matériaux de façade.
+Typographies : **Urbanist** (titres, y compris les grands titres détourés), **DM Sans** (interface)
+et **DM Mono** (textes courants). Motif : la lampe (Psaume 119.105), reprise dans le logo.
 
 ## Stack
 

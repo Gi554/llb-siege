@@ -1,30 +1,24 @@
 import Hero from "@/components/home/Hero";
-import Manifesto from "@/components/home/Manifesto";
-import ValuesBand from "@/components/home/ValuesBand";
-import PatioReveal from "@/components/home/PatioReveal";
-import Spaces from "@/components/home/Spaces";
-import PlanFacts from "@/components/home/PlanFacts";
-import ProgressPreview from "@/components/home/ProgressPreview";
-import CompareSection from "@/components/home/CompareSection";
-import Verse from "@/components/home/Verse";
-import NewsPreview from "@/components/home/NewsPreview";
-import { getComparisons, getNews, getStages } from "@/lib/content";
+import Features from "@/components/home/Features";
+import LookAround from "@/components/home/LookAround";
+import SpacesCarousel from "@/components/home/SpacesCarousel";
+import Included from "@/components/home/Included";
+import StagesRail from "@/components/home/StagesRail";
+import Journal from "@/components/home/Journal";
+import { getNews, getProjet, getStages } from "@/lib/content";
 
 export default async function HomePage() {
-  const [stages, comparisons, news] = await Promise.all([getStages(), getComparisons(), getNews(3)]);
+  const [{ spaces }, stages, news] = await Promise.all([getProjet(), getStages(), getNews(3)]);
 
   return (
     <>
       <Hero />
-      <Manifesto />
-      <ValuesBand />
-      <PatioReveal />
-      <Spaces />
-      <PlanFacts />
-      <ProgressPreview stages={stages.slice(0, 4)} />
-      <CompareSection comparison={comparisons[0]} />
-      <Verse />
-      <NewsPreview items={news} />
+      <Features />
+      <LookAround />
+      <SpacesCarousel spaces={spaces} />
+      <Included />
+      <StagesRail stages={stages} />
+      <Journal items={news} />
     </>
   );
 }

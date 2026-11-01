@@ -1,72 +1,76 @@
+"use client";
+
 import Link from "next/link";
 import { nav } from "@/content/navigation";
 import { projet } from "@/content/projet";
 
 export default function Footer() {
-  const words = ["Suivre la construction", "Une vision prend vie", "Cotonou · Bénin"];
-  return (
-    <footer data-header="on-dark" className="grain relative overflow-hidden bg-foret text-ivoire">
-      <Link href="/chantier" className="group block border-b border-ivoire/10 py-[clamp(3rem,7vw,6rem)]" aria-label="Suivre la construction">
-        <div className="flex w-max marquee-track group-hover:[animation-play-state:paused]" aria-hidden="true">
-          {[0, 1].map((k) => (
-            <div key={k} className="display flex shrink-0 items-center gap-[4vw] pr-[4vw] text-[clamp(3.5rem,10vw,10rem)] leading-none">
-              {words.map((w, i) => (
-                <span key={i} className="flex items-center gap-[4vw]">
-                  <span className={i % 2 ? "italic text-or" : "transition-colors duration-500 group-hover:text-or"}>{w}</span>
-                  <span className="inline-block h-[0.14em] w-[0.14em] rounded-full bg-terracotta" />
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
-      </Link>
+  const toTop = () => {
+    if (window.__lenis) window.__lenis.scrollTo(0, { duration: 1.4 });
+    else window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
-      <div className="wrap grid grid-cols-2 gap-x-[var(--gutter)] gap-y-12 py-16 md:grid-cols-12">
-        <div className="col-span-2 md:col-span-5">
-          <p className="display text-3xl leading-tight md:text-4xl">
-            {projet.name}
-          </p>
-          <p className="mt-4 max-w-sm text-sm leading-relaxed text-ivoire/60">{projet.intro}</p>
-        </div>
-        <nav aria-label="Pied de page" className="md:col-span-3 md:col-start-7">
-          <p className="eyebrow text-ivoire/45">Explorer</p>
-          <ul className="mt-5 space-y-2.5 text-sm">
+  return (
+    <footer className="relative bg-foret text-blanc">
+      <button
+        type="button"
+        onClick={toTop}
+        className="absolute left-1/2 top-0 grid h-[50px] w-[50px] -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-foret text-[11px] leading-none text-blanc ring-4 ring-transparent transition-transform duration-300 hover:-translate-y-[60%]"
+        aria-label="Revenir en haut de la page"
+      >
+        <span className="flex flex-col items-center gap-0.5">
+          <svg viewBox="0 0 24 24" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+            <path d="M12 19V5M6 11l6-6 6 6" />
+          </svg>
+          haut
+        </span>
+      </button>
+
+      <div className="container-site grid gap-12 pb-12 pt-24 md:grid-cols-12 md:pt-28">
+        <p className="display text-[clamp(2.6rem,4.4vw,3.6rem)] leading-[0.95] md:col-span-4">
+          le siège
+          <br />
+          llb
+        </p>
+
+        <nav aria-label="Pied de page" className="md:col-span-3">
+          <p className="font-display text-base font-medium">le projet</p>
+          <ul className="mt-5 space-y-2.5 text-[12px] tracking-[0.04em] text-blanc/85">
             {nav.map((n) => (
               <li key={n.href}>
-                <Link href={n.href} className="link-underline pb-0.5 text-ivoire/85 hover:text-ivoire">
+                <Link href={n.href} className="link-underline pb-0.5 hover:text-menthe">
                   {n.label}
                 </Link>
               </li>
             ))}
           </ul>
         </nav>
-        <div className="md:col-span-3">
-          <p className="eyebrow text-ivoire/45">Le projet</p>
-          <dl className="mt-5 space-y-4 text-sm">
-            <div>
-              <dt className="text-ivoire/50">Maître d&apos;ouvrage</dt>
-              <dd>{projet.owner}</dd>
-            </div>
-            <div>
-              <dt className="text-ivoire/50">Architecture</dt>
-              <dd>{projet.architect}</dd>
-            </div>
-            <div>
-              <dt className="text-ivoire/50">Lieu</dt>
-              <dd>{projet.city}, {projet.country}</dd>
-            </div>
-          </dl>
+
+        <div className="md:col-span-3 md:pt-10">
+          <p className="font-display text-base font-medium">informations</p>
+          <ul className="mt-5 space-y-2.5 text-[12px] tracking-[0.04em] text-blanc/85">
+            <li>{projet.owner}</li>
+            <li>
+              {projet.city}, {projet.country}
+            </li>
+            <li>Architecture : {projet.architect}</li>
+          </ul>
+        </div>
+
+        <div className="flex items-start md:col-span-2 md:justify-end">
+          <span className="grid h-11 w-11 place-items-center rounded-full border border-blanc/25 text-menthe" aria-hidden="true">
+            <svg viewBox="0 0 64 64" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M32 6c4 6 6 9.5 6 13a6 6 0 0 1-12 0c0-3.5 2-7 6-13Z" />
+              <path d="M8 34h48c-2 10-11 16-24 16S10 44 8 34Z" />
+            </svg>
+          </span>
         </div>
       </div>
 
-      <div className="wrap flex flex-col gap-3 border-t border-ivoire/10 py-6 text-xs text-ivoire/45 md:flex-row md:justify-between">
+      <div className="container-site flex flex-col gap-2 border-t border-blanc/10 py-6 text-[11px] tracking-[0.04em] text-blanc/50 md:flex-row md:justify-between">
         <span>© {new Date().getFullYear()} {projet.owner}</span>
-        <span>Visuels : perspectives architecturales NPS GROUP</span>
+        <span>Visuels : perspectives architecturales {projet.architect}</span>
       </div>
-
-      <p aria-hidden="true" className="display pointer-events-none select-none px-[var(--gutter)] pb-2 text-[31vw] leading-[0.72] text-ivoire/[0.06]">
-        LLB
-      </p>
     </footer>
   );
 }

@@ -1,24 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Inter_Tight } from "next/font/google";
+import { DM_Mono, DM_Sans, Urbanist } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
-import Preloader from "@/components/Preloader";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  axes: ["opsz", "SOFT"],
-  style: ["normal", "italic"],
-  variable: "--font-fraunces",
-  display: "swap",
-});
-
-const inter = Inter_Tight({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
+// Urbanist and DM Sans are variable fonts: no weight list needed.
+const urbanist = Urbanist({ subsets: ["latin"], variable: "--font-urbanist", display: "swap" });
+const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans", display: "swap" });
+const dmMono = DM_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-dm-mono", display: "swap" });
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
@@ -39,18 +29,17 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0d2620",
+  themeColor: "#062521",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={`${fraunces.variable} ${inter.variable}`}>
+    <html lang="fr" className={`${urbanist.variable} ${dmSans.variable} ${dmMono.variable}`}>
       <body>
-        <a href="#contenu" className="sr-only z-[200] rounded bg-ivoire px-4 py-2 text-encre focus:not-sr-only focus:fixed focus:left-4 focus:top-4">
+        <a href="#contenu" className="sr-only z-[200] rounded bg-blanc px-4 py-2 text-encre focus:not-sr-only focus:fixed focus:left-4 focus:top-4">
           Aller au contenu
         </a>
         <SmoothScroll />
-        <Preloader />
         <Header />
         <main id="contenu">{children}</main>
         <Footer />
