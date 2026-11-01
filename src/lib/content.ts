@@ -25,6 +25,12 @@ export async function getGallery() {
   return { items: gallery, espaces: galleryEspaces, kinds: galleryKinds, stages: stages.map(({ slug, title }) => ({ slug, title })) };
 }
 
+export async function getArticle(slug: string) {
+  const i = news.findIndex((n) => n.slug === slug);
+  if (i < 0) return null;
+  return { article: news[i], prev: news[i - 1] ?? null, next: news[i + 1] ?? null };
+}
+
 export async function getNews(limit?: number) {
   return typeof limit === "number" ? news.slice(0, limit) : news;
 }
