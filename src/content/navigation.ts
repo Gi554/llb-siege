@@ -8,3 +8,16 @@ export const nav = [
   { href: "/galerie", label: "Galerie", image: images.librairie },
   { href: "/actualites", label: "Actualités", image: images.jardin },
 ];
+
+/** Links shown in the desktop header bar. */
+export const headerLinks = [
+  { href: "/projet", label: "Le projet" },
+  { href: "/galerie", label: "Galerie" },
+  { href: "/actualites", label: "Actualités" },
+];
+
+export const announcement = {
+  text: "Dossier architectural publié — Octobre 2026 · Suivez la construction du siège étape par étape.",
+  href: "/chantier",
+  cta: "Voir",
+};
