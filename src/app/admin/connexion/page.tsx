@@ -29,7 +29,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
             <LoginForm suite={suite} />
           </div>
         </div>
-        <p className="text-[12px] text-blanc/50">Ligue pour la Lecture de la Bible — Cotonou</p>
+        <p className="text-[12px] text-blanc/50">Ligue pour la Lecture de la Bible — Calavi</p>
       </div>
       <div className="relative hidden md:block">
         <Image src={images.patio.src} alt="" fill priority sizes="66vw" className="object-cover" />

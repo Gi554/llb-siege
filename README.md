@@ -1,7 +1,7 @@
 # Siège de la LLB — Une vision prend vie
 
 Site de présentation et de suivi de la construction du futur siège de la
-**Ligue pour la Lecture de la Bible** à Cotonou (Bénin). Projet architectural : **NPS GROUP**.
+**Ligue pour la Lecture de la Bible** à Calavi (Bénin). Projet architectural : **NPS GROUP**.
 
 Le site présente la vision architecturale du bâtiment (librairie, bureaux, salle de réunion et de
 conférence, patio central, jardins et terrasses) et permettra de suivre l'évolution réelle du chantier,

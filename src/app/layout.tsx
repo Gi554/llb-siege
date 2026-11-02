@@ -12,11 +12,11 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Une vision prend vie — Siège de la LLB, Cotonou",
+    default: "Une vision prend vie — Siège de la LLB, Calavi",
     template: "%s — Siège de la LLB",
   },
   description:
-    "Découvrez le futur siège de la Ligue pour la Lecture de la Bible à Cotonou (Bénin) et suivez l'évolution de sa construction, étape par étape.",
+    "Découvrez le futur siège de la Ligue pour la Lecture de la Bible à Calavi (Bénin) et suivez l'évolution de sa construction, étape par étape.",
   openGraph: {
     type: "website",
     locale: "fr_FR",

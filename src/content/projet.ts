@@ -34,7 +34,7 @@ export const images = {
 export const projet = {
   name: "Siège de la Ligue pour la Lecture de la Bible",
   short: "Siège LLB",
-  city: "Cotonou",
+  city: "Calavi",
   country: "Bénin",
   owner: "Ligue pour la Lecture de la Bible",
   architect: "NPS GROUP",
@@ -43,7 +43,7 @@ export const projet = {
   intro:
     "Un siège contemporain et accueillant, de plain-pied, où librairie, bureaux et salle de conférence s'articulent autour d'un patio central, dans un cadre de jardins et de terrasses.",
   descriptif: [
-    "La construction du siège de la Ligue pour la Lecture de la Bible à Cotonou s'inscrit dans une dynamique de structuration et de rayonnement de l'institution. L'intervention vise à renforcer son image, à travers une architecture contemporaine, accueillante et représentative de sa mission.",
+    "La construction du siège de la Ligue pour la Lecture de la Bible à Calavi s'inscrit dans une dynamique de structuration et de rayonnement de l'institution. L'intervention vise à renforcer son image, à travers une architecture contemporaine, accueillante et représentative de sa mission.",
     "La composition des volumes, de plain-pied, privilégie des lignes épurées, des proportions maîtrisées et une organisation lisible. L'ensemble propose une architecture institutionnelle sobre, cohérente et pérenne, conciliant modernisation et identité locale.",
   ],
 };
@@ -64,14 +64,14 @@ export const intentions = [
   },
   {
     title: "Une identité locale",
-    text: "Des matériaux et des tonalités qui font écho à l'environnement de Cotonou, pour une architecture sobre, cohérente et pérenne.",
+    text: "Des matériaux et des tonalités qui font écho à l'environnement de Calavi, pour une architecture sobre, cohérente et pérenne.",
   },
 ];
 
 export const actors = [
   { label: "Maître d'ouvrage", value: "Ligue pour la Lecture de la Bible" },
   { label: "Architecture", value: "NPS GROUP" },
-  { label: "Lieu", value: "Cotonou, Bénin" },
+  { label: "Lieu", value: "Calavi, Bénin" },
   { label: "Dossier architectural", value: "Octobre 2026" },
 ];
 
@@ -98,7 +98,7 @@ export const planRooms = [
 ];
 
 export const materials: Material[] = [
-  { name: "Enduit effet terracotta", note: "Un écho aux terres et aux tonalités de Cotonou.", texture: "/images/projet/materiau-terracotta.jpg", tone: "#B4532E" },
+  { name: "Enduit effet terracotta", note: "Un écho aux terres et aux tonalités de Calavi.", texture: "/images/projet/materiau-terracotta.jpg", tone: "#B4532E" },
   { name: "Enduit effet béton", note: "La sobriété d'un minéral contemporain.", texture: "/images/projet/materiau-beton.jpg", tone: "#A9A6A0" },
   { name: "Peinture acrylique", note: "Des surfaces claires qui captent la lumière.", texture: "/images/projet/materiau-acrylique.jpg", tone: "#EEECE6" },
   { name: "Verre transparent", note: "L'ouverture sur la rue et sur les jardins.", texture: "/images/projet/materiau-verre.jpg", tone: "#9DB3C4" },

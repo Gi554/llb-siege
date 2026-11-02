@@ -41,7 +41,7 @@ export default function MaterialsRail({ materials }: { materials: Material[] }) 
           </h2>
           <p className="mt-6 max-w-[17rem] text-[13px] text-encre/75">
             Une palette volontairement sobre, qui donne au bâtiment une expression contemporaine tout en favorisant son
-            intégration à Cotonou.
+            intégration à Calavi.
           </p>
         </div>
         <ul className="grid grid-cols-2 gap-x-6 gap-y-12 px-[var(--gutter)] sm:grid-cols-4 md:pl-0">

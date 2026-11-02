@@ -7,7 +7,7 @@ import { getGallery } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Galerie",
   description:
-    "Perspectives architecturales, plans et photographies du chantier du siège de la Ligue pour la Lecture de la Bible à Cotonou.",
+    "Perspectives architecturales, plans et photographies du chantier du siège de la Ligue pour la Lecture de la Bible à Calavi.",
 };
 
 export default async function GaleriePage() {

@@ -21,14 +21,14 @@ export const SETTINGS = [
     default: "Dossier architectural publié — Octobre 2026 · Suivez la construction du siège étape par étape.",
     max: 160,
   },
-  { key: "home.eyebrow", group: "Accueil", label: "Surtitre", default: "Cotonou, Bénin", max: 60 },
+  { key: "home.eyebrow", group: "Accueil", label: "Surtitre", default: "Calavi, Bénin", max: 60 },
   { key: "home.title", group: "Accueil", label: "Titre principal", default: "Une vision prend vie.", max: 80 },
   {
     key: "home.text",
     group: "Accueil",
     label: "Texte d'introduction",
     default:
-      "Le futur siège de la Ligue pour la Lecture de la Bible : une librairie, des bureaux, une salle de conférence et un patio planté, réunis de plain-pied au cœur de Cotonou.",
+      "Le futur siège de la Ligue pour la Lecture de la Bible : une librairie, des bureaux, une salle de conférence et un patio planté, réunis de plain-pied au cœur de Calavi.",
     multiline: true,
     max: 400,
   },
@@ -74,7 +74,7 @@ export const SETTINGS = [
     group: "Faire un don",
     label: "Texte d'appel",
     default:
-      "Le bâtiment existant s'est élevé jusqu'à la toiture avant que les travaux ne soient suspendus. Votre don permet de reprendre le chantier et d'achever le futur siège de la Ligue pour la Lecture de la Bible à Cotonou.",
+      "Le bâtiment existant s'est élevé jusqu'à la toiture avant que les travaux ne soient suspendus. Votre don permet de reprendre le chantier et d'achever le futur siège de la Ligue pour la Lecture de la Bible à Calavi.",
     multiline: true,
     max: 500,
   },

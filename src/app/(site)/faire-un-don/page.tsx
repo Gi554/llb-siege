@@ -11,7 +11,7 @@ import { getSettings } from "@/lib/settings";
 export const metadata: Metadata = {
   title: "Faire un don",
   description:
-    "Contribuez à la construction du siège de la Ligue pour la Lecture de la Bible à Cotonou : écrivez à l'équipe sur WhatsApp pour connaître les moyens de donner.",
+    "Contribuez à la construction du siège de la Ligue pour la Lecture de la Bible à Calavi : écrivez à l'équipe sur WhatsApp pour connaître les moyens de donner.",
 };
 
 function WhatsAppButton({ href, className = "" }: { href: string; className?: string }) {
