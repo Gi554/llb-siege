@@ -15,6 +15,9 @@ export const metadata: Metadata = {
     "La vision architecturale du futur siège de la Ligue pour la Lecture de la Bible à Calavi : intentions, plan, espaces et matériaux du projet signé NPS GROUP.",
 };
 
+// Picks up content changed directly in the database (admin changes refresh at once).
+export const revalidate = 300;
+
 export default async function ProjetPage() {
   const [{ projet, images, intentions, planRooms, facts, spaces, materials, actors }, s] = await Promise.all([getProjet(), getSettings()]);
 

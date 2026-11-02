@@ -33,6 +33,9 @@ const PROTOCOL = [
   },
 ];
 
+// Picks up content changed directly in the database (admin changes refresh at once).
+export const revalidate = 300;
+
 export default async function AvantApresPage() {
   const [comparisons, viewpoints, s] = await Promise.all([getComparisons(), getViewpoints(), getSettings()]);
   const [featured, ...others] = comparisons;

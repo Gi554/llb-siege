@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "Suivez étape par étape la construction du siège de la Ligue pour la Lecture de la Bible à Calavi : photographies, vidéos et comptes rendus.",
 };
 
+// Picks up content changed directly in the database (admin changes refresh at once).
+export const revalidate = 300;
+
 export default async function ChantierPage() {
   const [stages, s] = await Promise.all([getStages(), getSettings()]);
 

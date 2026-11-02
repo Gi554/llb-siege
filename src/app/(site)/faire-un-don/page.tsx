@@ -25,6 +25,9 @@ function WhatsAppButton({ href, className = "" }: { href: string; className?: st
   );
 }
 
+// Picks up content changed directly in the database (admin changes refresh at once).
+export const revalidate = 300;
+
 export default async function DonPage() {
   const s = await getSettings();
   const href = whatsappLink(s["don.whatsapp"]);
