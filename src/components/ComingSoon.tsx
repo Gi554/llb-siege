@@ -15,7 +15,7 @@ export default function ComingSoon({ eyebrow, title, text, image }: { eyebrow: s
         </Link>
       }
     >
-      <Image src={image.src} alt={image.alt} fill priority quality={85} sizes="(min-width: 768px) 66vw, 100vw" className="object-cover" />
+      <Image src={image.src} alt={image.alt} fill priority quality={85} sizes="(min-width: 768px) 110vw, 200vw" className="object-cover" />
     </SplitHero>
   );
 }

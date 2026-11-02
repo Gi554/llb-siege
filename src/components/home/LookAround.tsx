@@ -50,7 +50,7 @@ export default function LookAround() {
           <div className="relative h-[460px] md:col-span-7 md:h-auto">
             <figure data-la-a className="absolute left-0 top-0 w-[48%] md:-top-24 md:left-[4%] md:w-[40%]">
               <div className="relative aspect-[3/4] overflow-hidden shadow-[0_30px_60px_rgba(20,31,28,.18)]">
-                <Image src={images.patio.src} alt={images.patio.alt} fill sizes="(min-width: 768px) 24vw, 48vw" className="object-cover object-[45%_50%]" />
+                <Image src={images.patio.src} alt={images.patio.alt} fill sizes="(min-width: 768px) 70vw, 140vw" className="object-cover object-[45%_50%]" />
               </div>
               <figcaption className="absolute -right-6 bottom-0 rotate-180 whitespace-nowrap font-sans text-[12px] text-encre/80 [writing-mode:vertical-rl]">
                 Le patio central
@@ -58,7 +58,7 @@ export default function LookAround() {
             </figure>
             <figure data-la-b className="absolute bottom-0 right-0 w-[56%] md:bottom-10 md:w-[46%]">
               <div className="relative aspect-[4/5] overflow-hidden shadow-[0_30px_60px_rgba(20,31,28,.18)]">
-                <Image src={images.jardin.src} alt={images.jardin.alt} fill sizes="(min-width: 768px) 28vw, 56vw" className="object-cover object-[60%_50%]" />
+                <Image src={images.jardin.src} alt={images.jardin.alt} fill sizes="(min-width: 768px) 78vw, 155vw" className="object-cover object-[60%_50%]" />
               </div>
             </figure>
           </div>

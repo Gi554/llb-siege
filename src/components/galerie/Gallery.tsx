@@ -238,7 +238,7 @@ export default function Gallery({ items, espaces, kinds, stages }: Props) {
                     alt={g.alt}
                     fill
                     quality={80}
-                    sizes="(min-width: 768px) 60vw, 100vw"
+                    sizes="(min-width: 768px) 80vw, 160vw"
                     className={`transition-transform duration-[1.4s] ease-[var(--ease-out-expo)] group-hover:scale-[1.06] ${g.kind === "plan" ? "bg-white object-contain p-4" : "object-cover"}`}
                   />
                 </button>

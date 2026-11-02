@@ -31,7 +31,7 @@ export default async function ActualitesPage() {
           </Link>
         }
       >
-        <Image src={lead.image.src} alt={lead.image.alt} fill priority quality={85} sizes="(min-width: 768px) 66vw, 100vw" className="object-cover" />
+        <Image src={lead.image.src} alt={lead.image.alt} fill priority quality={85} sizes="(min-width: 768px) 110vw, 200vw" className="object-cover" />
         <Link
           href={`/actualites/${lead.slug}`}
           className="group absolute bottom-0 left-0 w-full bg-blanc p-6 shadow-[0_30px_60px_rgba(6,37,33,.2)] sm:w-[min(28rem,80%)] md:bottom-10 md:left-10 md:p-7"

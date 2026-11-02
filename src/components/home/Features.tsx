@@ -70,11 +70,11 @@ export default function Features() {
 
         <div className="relative h-[420px] sm:h-[520px] lg:col-span-6">
           <div data-feat-main className="absolute right-0 top-0 h-[85%] w-[78%] overflow-hidden">
-            <Image src={images.librairieHd.src} alt={images.librairieHd.alt} fill sizes="(min-width: 1024px) 40vw, 80vw" className="object-cover" />
+            <Image src={images.librairieHd.src} alt={images.librairieHd.alt} fill sizes="(min-width: 1024px) 70vw, 150vw" className="object-cover" />
           </div>
           <figure data-feat-card className="absolute bottom-0 left-0 w-[62%] overflow-hidden bg-foret shadow-[0_30px_60px_rgba(6,37,33,.25)]">
             <div className="relative aspect-[16/10]">
-              <Image src={images.conference.src} alt={images.conference.alt} fill sizes="(min-width: 1024px) 30vw, 60vw" className="object-cover" />
+              <Image src={images.conference.src} alt={images.conference.alt} fill sizes="(min-width: 1024px) 42vw, 84vw" className="object-cover" />
             </div>
             <figcaption className="flex items-center gap-3 px-4 py-3 text-blanc">
               <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-menthe text-foret">

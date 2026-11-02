@@ -33,7 +33,7 @@ export default async function ProjetPage() {
           </Link>
         }
       >
-        <Image src={images.patio.src} alt={images.patio.alt} fill priority quality={85} sizes="(min-width: 768px) 66vw, 100vw" className="object-cover object-[50%_50%]" />
+        <Image src={images.patio.src} alt={images.patio.alt} fill priority quality={85} sizes="(min-width: 768px) 110vw, 200vw" className="object-cover object-[50%_50%]" />
       </SplitHero>
 
       {/* Intentions */}
@@ -54,7 +54,7 @@ export default async function ProjetPage() {
             </div>
             <figure className="absolute bottom-0 left-0 w-[62%] overflow-hidden bg-foret shadow-[0_30px_60px_rgba(6,37,33,.25)]">
               <div className="relative aspect-[16/10]">
-                <Image src={images.facade2.src} alt={images.facade2.alt} fill sizes="(min-width: 1024px) 30vw, 60vw" className="object-cover" />
+                <Image src={images.facade2.src} alt={images.facade2.alt} fill sizes="(min-width: 1024px) 42vw, 84vw" className="object-cover" />
               </div>
               <figcaption className="px-4 py-3 font-display text-[15px] font-medium text-blanc">
                 Façade et portail d&apos;entrée
@@ -104,7 +104,7 @@ export default async function ProjetPage() {
             {spaces.map((s, i) => (
               <Reveal as="li" key={s.slug} delay={(i % 3) * 0.08}>
                 <div className="relative aspect-[4/3] overflow-hidden bg-sable">
-                  <Image src={s.image.src} alt={s.image.alt} fill sizes="(min-width: 1024px) 26vw, (min-width: 640px) 45vw, 100vw" className="object-cover transition-transform duration-700 hover:scale-105" />
+                  <Image src={s.image.src} alt={s.image.alt} fill sizes="(min-width: 1024px) 43vw, (min-width: 640px) 75vw, 165vw" className="object-cover transition-transform duration-700 hover:scale-105" />
                 </div>
                 <p className="mt-5 text-[11px] uppercase tracking-[0.12em] text-encre/55">{s.image.caption}</p>
                 <h3 className="mt-2 font-sans text-[1.15rem] font-medium leading-snug text-encre">{s.title}</h3>
