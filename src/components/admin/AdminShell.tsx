@@ -16,6 +16,7 @@ const NAV: Item[] = [
   { href: "/admin/mediatheque", label: "Médiathèque", ready: true },
   { href: "/admin/comparaisons", label: "Avant / Après", ready: true },
   { href: "/admin/actualites", label: "Actualités", ready: true },
+  { href: "/admin/partenaires", label: "Partenaires", ready: true },
   { href: "/admin/contenus", label: "Textes des pages", ready: true },
   { href: "/admin/utilisateurs", label: "Utilisateurs", ready: true, adminOnly: true },
 ];
