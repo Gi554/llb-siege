@@ -5,11 +5,13 @@ import SpacesCarousel from "@/components/home/SpacesCarousel";
 import Included from "@/components/home/Included";
 import StagesRail from "@/components/home/StagesRail";
 import Journal from "@/components/home/Journal";
+import Partners from "@/components/home/Partners";
 import { getNews, getProjet, getStages } from "@/lib/content";
 import { getSettings, heroImage } from "@/lib/settings";
+import { getPartners } from "@/lib/partners";
 
 export default async function HomePage() {
-  const [{ spaces }, stages, news, s] = await Promise.all([getProjet(), getStages(), getNews(3), getSettings()]);
+  const [{ spaces }, stages, news, s, partners] = await Promise.all([getProjet(), getStages(), getNews(3), getSettings(), getPartners()]);
 
   return (
     <>
@@ -20,6 +22,7 @@ export default async function HomePage() {
       <Included />
       <StagesRail stages={stages} />
       <Journal items={news} />
+      <Partners partners={partners} />
     </>
   );
 }

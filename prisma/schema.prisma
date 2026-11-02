@@ -148,3 +148,18 @@ model Setting {
   key   String @id
   value String
 }
+
+/// A partner or donor thanked on the home page, with its logo.
+model Partner {
+  id         String   @id @default(cuid())
+  name       String
+  /// Uploaded logo (/uploads/…), stored as WebP with its transparency.
+  logo       String
+  logoWidth  Int
+  logoHeight Int
+  url        String?
+  visible    Boolean  @default(true)
+  order      Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}

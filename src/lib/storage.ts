@@ -20,15 +20,17 @@ const blobStore = async () => (await import("@netlify/blobs")).getStore({ name: 
 
 /**
  * Normalises a picture for the web: applies the camera orientation, strips
- * metadata (including GPS position), caps the longest edge and stores WebP.
+ * metadata (including GPS position), caps the longest edge and stores WebP
+ * (transparency is kept, which matters for logos).
  */
-export async function storeImage(buffer: Buffer) {
+export async function storeImage(buffer: Buffer, { maxEdge = MAX_EDGE, density }: { maxEdge?: number; density?: number } = {}) {
   const now = new Date();
   const key = `${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, "0")}/${randomUUID()}.webp`;
 
-  const { data, info } = await sharp(buffer, { failOn: "error" })
+  // `density` sets the rendering resolution of vector files (SVG logos).
+  const { data, info } = await sharp(buffer, { failOn: "error", density })
     .rotate()
-    .resize({ width: MAX_EDGE, height: MAX_EDGE, fit: "inside", withoutEnlargement: true })
+    .resize({ width: maxEdge, height: maxEdge, fit: "inside", withoutEnlargement: true })
     .webp({ quality: 82 })
     .toBuffer({ resolveWithObject: true });
 
