@@ -12,12 +12,12 @@ const img = (file: string, alt: string, width: number, height: number, caption?:
 });
 
 export const images = {
-  facade: img("facade-principale.jpg", "Façade principale du futur siège de la LLB vue depuis la rue, avec la vitrine de la librairie", 3150, 1053, "Façade principale sur rue"),
+  facade: img("facade-principale.jpg", "Façade principale du futur siège de la LLB vue depuis la rue", 2172, 724, "Façade principale sur rue"),
   facadeDetail: img("facade-detail.jpg", "Entrée du futur siège : parement de pierre, vitrine et portail en bois", 999, 725),
   facade1: img("perspective-01-facade.jpg", "Perspective 1 — façade sur rue", 2172, 724, "Perspective 1"),
   facade2: img("perspective-02-facade.jpg", "Perspective 2 — façade et portail d'entrée", 1983, 793, "Perspective 2"),
   librairie: img("perspective-03-librairie.jpg", "La librairie et son comptoir d'accueil en bois", 1854, 848, "Perspective 3 — la librairie"),
-  librairieHd: img("librairie-hd.jpg", "Intérieur de la librairie, rayonnages éclairés et comptoir", 3150, 1444),
+  librairieHd: img("librairie-hd.jpg", "Intérieur de la librairie, rayonnages éclairés et comptoir", 1854, 848),
   conference: img("perspective-04-conference.jpg", "La salle de réunion et de conférence", 1866, 843, "Perspective 4 — salle de réunion et de conférence"),
   direction: img("perspective-05-direction.jpg", "Le bureau du directeur", 1881, 836, "Perspective 5 — bureau directeur"),
   cour: img("perspective-06-cour.jpg", "La cour pavée et l'entrée du bâtiment", 1848, 851, "Perspective 6 — la cour"),

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_FR",
     siteName: "Siège de la LLB",
-    images: [{ url: "/images/projet/facade-principale.jpg", width: 3150, height: 1053, alt: "Façade principale du futur siège de la LLB" }],
+    images: [{ url: "/images/projet/facade-principale.jpg", width: 2172, height: 724, alt: "Façade principale du futur siège de la LLB" }],
   },
 };
 
