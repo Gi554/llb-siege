@@ -23,18 +23,25 @@ export const existant = {
 
 /** The building as it stands, photographed on site on 2 November 2026. */
 const actuel = (file: string, alt: string, width = 1440, height = 1920) => photo(file, alt, width, height, "État actuel — novembre 2026");
-// The wide view of the façade comes first: it opens the stage and the comparison.
+// The wide view of the front comes first: it opens the stage and the comparison.
+// The front (galerie à colonnes) comes before the back of the building.
 export const etatActuel: Media[] = [
-  actuel("etat-actuel-facade-large.jpg", "Le bâtiment existant vu de face depuis la parcelle, avec le puits au premier plan", 1920, 1440),
+  actuel("etat-actuel-avant.jpg", "La façade avant du bâtiment existant vue depuis la parcelle : galerie à colonnes sous un fronton en béton", 1920, 1440),
+  actuel("etat-actuel-avant-face.jpg", "La façade avant du bâtiment existant, de face : galerie à colonnes, fronton et ouvertures sans menuiseries"),
+  actuel("etat-actuel-galerie.jpg", "Sous la galerie de la façade avant : dalle en béton sur colonnes et entrée sans menuiserie"),
+  actuel("etat-actuel-galerie-angle.jpg", "La galerie de la façade avant vue en biais, avec son fronton et ses colonnes"),
+  actuel("etat-actuel-entree.jpg", "Une entrée de la façade avant, ouverte sur l'intérieur du bâtiment"),
+  actuel("etat-actuel-abords.jpg", "Les abords de la façade avant, entre le muret, la végétation et la rue"),
+  actuel("etat-actuel-facade-large.jpg", "L'arrière du bâtiment existant vu depuis la parcelle, avec le puits au premier plan", 1920, 1440),
+  actuel("etat-actuel-facade.jpg", "L'arrière du bâtiment existant : murs en parpaings non enduits, ouvertures sans menuiseries, toiture en tôles et puits au premier plan"),
   actuel("etat-actuel-interieur.jpg", "Vue intérieure du bâtiment existant vers la toiture en tôles, murs en parpaings"),
   actuel("etat-actuel-piece.jpg", "Une pièce du bâtiment existant : sol en sable, murs en parpaings, toiture en tôles sur charpente bois et baie sans menuiserie"),
-  actuel("etat-actuel-facade.jpg", "La façade du bâtiment existant : murs en parpaings non enduits, ouvertures sans menuiseries, toiture en place et puits au premier plan"),
-  actuel("etat-actuel-puits.jpg", "Le puits, entre les murs en parpaings du bâtiment existant"),
-  actuel("etat-actuel-volume-arrondi.jpg", "Un volume arrondi du bâtiment existant et le passage le long des murs"),
+  actuel("etat-actuel-puits.jpg", "Le puits, à l'arrière du bâtiment existant"),
+  actuel("etat-actuel-volume-arrondi.jpg", "Un volume arrondi à l'arrière du bâtiment existant et le passage le long des murs"),
   actuel("etat-actuel-cote.jpg", "Le côté du bâtiment existant et les arbres de la parcelle"),
   actuel("etat-actuel-parcelle.jpg", "La parcelle et son mur de clôture"),
-  actuel("etat-actuel-facade-laterale.jpg", "Une façade du bâtiment existant : murs en parpaings et ouvertures sans menuiseries"),
-  actuel("etat-actuel-angle.jpg", "Un angle du bâtiment existant, gagné par la végétation"),
+  actuel("etat-actuel-facade-laterale.jpg", "L'arrière du bâtiment existant : murs en parpaings et ouvertures sans menuiseries"),
+  actuel("etat-actuel-angle.jpg", "Un angle à l'arrière du bâtiment existant, gagné par la végétation"),
 ];
 
 export const stages: Stage[] = [
