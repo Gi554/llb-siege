@@ -17,8 +17,8 @@ const photo = (file: string, alt: string, width: number, height: number, caption
 
 /** The two photographs on the cover of the February 2025 funding request. */
 export const existant = {
-  facade: photo("batiment-existant-1.jpg", "Le bâtiment existant du siège : véranda à piliers et toiture posée, sur un terrain en terre battue", 472, 363, "Le bâtiment existant — février 2025"),
-  cour: photo("batiment-existant-2.jpg", "Le bâtiment existant vu depuis la parcelle : murs en parpaings non enduits, toiture en place", 472, 363, "Le bâtiment existant — février 2025"),
+  facade: photo("batiment-existant-1.jpg", "Le bâtiment existant du siège : véranda à piliers et toiture posée, sur un terrain en terre battue", 944, 726, "Le bâtiment existant — février 2025"),
+  cour: photo("batiment-existant-2.jpg", "Le bâtiment existant vu depuis la parcelle : murs en parpaings non enduits, toiture en place", 944, 726, "Le bâtiment existant — février 2025"),
 } satisfies Record<string, Media>;
 
 export const stages: Stage[] = [
