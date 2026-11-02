@@ -21,6 +21,22 @@ export const existant = {
   cour: photo("batiment-existant-2.jpg", "Le bâtiment existant vu depuis la parcelle : murs en parpaings non enduits, toiture en place", 944, 726, "Le bâtiment existant — février 2025"),
 } satisfies Record<string, Media>;
 
+/** The building as it stands, photographed on site on 2 November 2026. */
+const actuel = (file: string, alt: string, width = 1440, height = 1920) => photo(file, alt, width, height, "État actuel — novembre 2026");
+// The wide view of the façade comes first: it opens the stage and the comparison.
+export const etatActuel: Media[] = [
+  actuel("etat-actuel-facade-large.jpg", "Le bâtiment existant vu de face depuis la parcelle, avec le puits au premier plan", 1920, 1440),
+  actuel("etat-actuel-interieur.jpg", "Vue intérieure du bâtiment existant vers la toiture en tôles, murs en parpaings"),
+  actuel("etat-actuel-piece.jpg", "Une pièce du bâtiment existant : sol en sable, murs en parpaings, toiture en tôles sur charpente bois et baie sans menuiserie"),
+  actuel("etat-actuel-facade.jpg", "La façade du bâtiment existant : murs en parpaings non enduits, ouvertures sans menuiseries, toiture en place et puits au premier plan"),
+  actuel("etat-actuel-puits.jpg", "Le puits, entre les murs en parpaings du bâtiment existant"),
+  actuel("etat-actuel-volume-arrondi.jpg", "Un volume arrondi du bâtiment existant et le passage le long des murs"),
+  actuel("etat-actuel-cote.jpg", "Le côté du bâtiment existant et les arbres de la parcelle"),
+  actuel("etat-actuel-parcelle.jpg", "La parcelle et son mur de clôture"),
+  actuel("etat-actuel-facade-laterale.jpg", "Une façade du bâtiment existant : murs en parpaings et ouvertures sans menuiseries"),
+  actuel("etat-actuel-angle.jpg", "Un angle du bâtiment existant, gagné par la végétation"),
+];
+
 export const stages: Stage[] = [
   {
     slug: "batiment-existant",
@@ -34,7 +50,7 @@ export const stages: Stage[] = [
       "Construction poursuivie jusqu'à la toiture",
       "Travaux suspendus au profit des ministères",
     ],
-    media: [existant.facade, existant.cour],
+    media: [...etatActuel, existant.facade, existant.cour],
     source: "projet",
   },
   {
@@ -118,7 +134,7 @@ export const comparisons: Comparison[] = [
   {
     slug: "batiment-existant-futur-siege",
     title: "Du bâtiment existant au futur siège",
-    before: { ...existant.facade, label: "Bâtiment existant", date: "Février 2025" },
+    before: { ...etatActuel[0], label: "Bâtiment existant", date: "Novembre 2026" },
     after: { ...images.facade2, label: "Projet NPS GROUP", date: "Octobre 2026" },
     source: "projet",
   },

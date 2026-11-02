@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SplitHero from "@/components/SplitHero";
 import Reveal from "@/components/ui/Reveal";
-import { existant } from "@/content/chantier";
+import { etatActuel } from "@/content/chantier";
 import { images } from "@/content/projet";
 import { displayNumber, steps, whatsappLink } from "@/content/don";
 import { getSettings } from "@/lib/settings";
@@ -57,7 +57,7 @@ export default async function DonPage() {
           </Reveal>
           <div className="grid gap-6 sm:grid-cols-2 lg:col-span-7">
             {[
-              { media: existant.facade, label: "Aujourd'hui", sub: "Le bâtiment existant — février 2025" },
+              { media: etatActuel[0], label: "Aujourd'hui", sub: "Le bâtiment existant — novembre 2026" },
               { media: images.facade1, label: "Demain", sub: "Le futur siège — perspective NPS GROUP" },
             ].map((f, i) => (
               <Reveal as="figure" key={f.media.src} delay={i * 0.1}>

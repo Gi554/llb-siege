@@ -1,9 +1,10 @@
 import type { GalleryItem, GalleryKind, Media } from "./types";
-import { existant } from "./chantier";
+import { etatActuel, existant } from "./chantier";
 import { images } from "./projet";
 
 // Every image below comes from the architectural file (stage "conception"),
-// except the two photos of the existing building (February 2025 request).
+// except the photos of the existing building (February 2025 request, then
+// November 2026 on site).
 // Later site photographs are added from the back-office with kind "photo".
 
 export const galleryEspaces = [
@@ -56,5 +57,10 @@ export const gallery: GalleryItem[] = [
     ...item(`batiment-existant-${i + 1}`, media, "exterieur", "photo"),
     etape: "batiment-existant",
     dateLabel: "Février 2025",
+  })),
+  ...etatActuel.map((media, i) => ({
+    ...item(`etat-actuel-${i + 1}`, media, "exterieur", "photo"),
+    etape: "batiment-existant",
+    dateLabel: "Novembre 2026",
   })),
 ];
