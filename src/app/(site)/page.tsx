@@ -10,6 +10,9 @@ import { getNews, getProjet, getStages } from "@/lib/content";
 import { getSettings, heroImage } from "@/lib/settings";
 import { getPartners } from "@/lib/partners";
 
+// Admin changes refresh the page at once; this also picks up data changed directly in the database.
+export const revalidate = 300;
+
 export default async function HomePage() {
   const [{ spaces }, stages, news, s, partners] = await Promise.all([getProjet(), getStages(), getNews(3), getSettings(), getPartners()]);
 
