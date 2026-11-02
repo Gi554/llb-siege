@@ -15,6 +15,7 @@ const LINKS: Record<string, string> = {
   "Avant / Après": "/avant-apres",
   Galerie: "/galerie",
   Actualités: "/actualites",
+  "Faire un don": "/faire-un-don",
 };
 
 export default function SettingsForm({ values, media }: { values: Settings; media: PickerMedia[] }) {

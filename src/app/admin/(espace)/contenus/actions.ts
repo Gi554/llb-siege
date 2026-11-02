@@ -22,6 +22,8 @@ export async function saveSettings(_: SettingsState, fd: FormData): Promise<Sett
     if (!value && s.key !== "home.heroImage") return { error: `« ${s.label} » (${s.group}) ne peut pas être vide.` };
     values.push({ key: s.key, value });
   }
+  const phone = values.find((v) => v.key === "don.whatsapp")!.value.replace(/\D/g, "");
+  if (phone.length < 8 || phone.length > 15) return { error: "Le numéro WhatsApp doit contenir entre 8 et 15 chiffres." };
   const image = values.find((v) => v.key === "home.heroImage")!.value;
   if (image && !(await db.media.findUnique({ where: { id: image } }))) return { error: "L'image principale choisie n'existe plus." };
 

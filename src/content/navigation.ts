@@ -7,6 +7,7 @@ export const nav = [
   { href: "/avant-apres", label: "Avant / Après", image: images.facade2 },
   { href: "/galerie", label: "Galerie", image: images.librairie },
   { href: "/actualites", label: "Actualités", image: images.jardin },
+  { href: "/faire-un-don", label: "Faire un don", image: images.facade1 },
 ];
 
 /** Links shown in the desktop header bar. */
