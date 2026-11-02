@@ -46,7 +46,7 @@ export default async function AvantApresPage() {
         <CompareHero comparison={featured} text={s["avantApres.text"]} />
       ) : (
         <SplitHero eyebrow="Le projet et la réalité" title="Avant / Après." text={<p>Les premières comparaisons entre le projet et le chantier seront publiées ici.</p>}>
-          <Image src={images.facade.src} alt={images.facade.alt} fill priority sizes="(min-width: 768px) 66vw, 100vw" className="object-cover" />
+          <Image src={images.facade.src} alt={images.facade.alt} fill priority sizes="(min-width: 768px) 110vw, 200vw" className="object-cover" />
         </SplitHero>
       )}
 

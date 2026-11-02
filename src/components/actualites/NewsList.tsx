@@ -80,7 +80,7 @@ export default function NewsList({ items }: { items: NewsItem[] }) {
         {showFeatured && (
           <article data-nl-feat className="group mt-12 grid overflow-hidden bg-blanc md:grid-cols-2">
             <Link href={`/actualites/${featured.slug}`} className="relative block aspect-[4/3] overflow-hidden md:aspect-auto md:min-h-[440px]">
-              <Image src={featured.image.src} alt={featured.image.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <Image src={featured.image.src} alt={featured.image.alt} fill sizes="(min-width: 768px) 80vw, 165vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
             </Link>
             <div className="flex flex-col justify-center p-8 md:p-12">
               <p className="text-[11px] uppercase tracking-[0.12em] text-terracotta">À la une · {featured.category}</p>

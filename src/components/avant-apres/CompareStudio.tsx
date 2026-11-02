@@ -57,7 +57,7 @@ export default function CompareStudio({ comparison, dark = false }: { comparison
           <div className="grid gap-3 md:grid-cols-2">
             {[before, after].map((m, i) => (
               <figure key={m.src} className="relative aspect-[4/3] overflow-hidden rounded-[2px] bg-lin">
-                <Image src={m.src} alt={m.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
+                <Image src={m.src} alt={m.alt} fill sizes="(min-width: 768px) 83vw, 165vw" className="object-cover" />
                 <Label side={i === 0 ? "left" : "right"}>{tag(m)}</Label>
               </figure>
             ))}
@@ -67,8 +67,8 @@ export default function CompareStudio({ comparison, dark = false }: { comparison
         {mode === "fondu" && (
           <div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-[2px] bg-lin md:aspect-[16/7]">
-              <Image src={before.src} alt={before.alt} fill sizes="100vw" className="object-cover" />
-              <Image src={after.src} alt={after.alt} fill sizes="100vw" className="object-cover" style={{ opacity: fade / 100 }} />
+              <Image src={before.src} alt={before.alt} fill sizes="(min-width: 768px) 100vw, 165vw" className="object-cover" />
+              <Image src={after.src} alt={after.alt} fill sizes="(min-width: 768px) 100vw, 165vw" className="object-cover" style={{ opacity: fade / 100 }} />
               <Label side="left">{tag(before)}</Label>
               <Label side="right">{tag(after)}</Label>
             </div>

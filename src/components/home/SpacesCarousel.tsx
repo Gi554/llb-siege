@@ -115,7 +115,7 @@ export default function SpacesCarousel({ spaces }: { spaces: Space[] }) {
                 fill
                 quality={85}
                 loading={k === 0 ? "eager" : "lazy"}
-                sizes="(min-width: 1024px) 440px, 86vw"
+                sizes="(min-width: 1024px) 1220px, 240vw"
                 className={`object-cover transition-[opacity,transform] duration-700 ease-[var(--ease-out-expo)] ${k === i ? "scale-100 opacity-100" : "scale-[1.04] opacity-0"}`}
               />
             ))}

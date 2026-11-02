@@ -40,7 +40,7 @@ export default async function DonPage() {
         text={<p>{s["don.text"]}</p>}
         footer={<WhatsAppButton href={href} className="bg-menthe text-foret hover:bg-blanc" />}
       >
-        <Image src={images.facade2.src} alt={images.facade2.alt} fill priority quality={85} sizes="(min-width: 768px) 66vw, 100vw" className="object-cover" />
+        <Image src={images.facade2.src} alt={images.facade2.alt} fill priority quality={85} sizes="(min-width: 768px) 110vw, 200vw" className="object-cover" />
       </SplitHero>
 
       {/* From the suspended building to the future headquarters */}
@@ -65,7 +65,7 @@ export default async function DonPage() {
             ].map((f, i) => (
               <Reveal as="figure" key={f.media.src} delay={i * 0.1}>
                 <div className="relative aspect-[4/3] overflow-hidden bg-sable">
-                  <Image src={f.media.src} alt={f.media.alt} fill sizes="(min-width: 1024px) 28vw, (min-width: 640px) 45vw, 100vw" className="object-cover" />
+                  <Image src={f.media.src} alt={f.media.alt} fill sizes="(min-width: 1024px) 46vw, (min-width: 640px) 75vw, 165vw" className="object-cover" />
                 </div>
                 <figcaption className="mt-4">
                   <span className="block font-sans text-[1.15rem] font-medium text-encre">{f.label}</span>

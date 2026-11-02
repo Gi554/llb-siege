@@ -59,7 +59,7 @@ export default function GalleryHero({ items, documented, text }: { items: Galler
 
       {FRAMES.map((f) => (
         <div key={f.media.src} data-gh-frame data-speed={f.speed} className={`absolute overflow-hidden shadow-[0_30px_60px_rgba(20,31,28,.15)] ${f.cls}`} style={{ clipPath: "inset(0% 0% 0% 0%)" }}>
-          <Image src={f.media.src} alt="" fill priority sizes="(min-width: 768px) 22vw, 32vw" className="object-cover" />
+          <Image src={f.media.src} alt="" fill priority sizes="(min-width: 768px) 37vw, 54vw" className="object-cover" />
         </div>
       ))}
 

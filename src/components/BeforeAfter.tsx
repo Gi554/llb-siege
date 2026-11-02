@@ -65,9 +65,9 @@ export default function BeforeAfter({
           fromClientX(e.clientX);
         }}
       >
-        <Image src={after.src} alt={after.alt} fill sizes="100vw" className="pointer-events-none object-cover" draggable={false} />
+        <Image src={after.src} alt={after.alt} fill sizes="(min-width: 768px) 100vw, 165vw" className="pointer-events-none object-cover" draggable={false} />
         <div className="absolute inset-0" style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>
-          <Image src={before.src} alt={before.alt} fill sizes="100vw" className="pointer-events-none object-cover" draggable={false} />
+          <Image src={before.src} alt={before.alt} fill sizes="(min-width: 768px) 100vw, 165vw" className="pointer-events-none object-cover" draggable={false} />
         </div>
 
         <span className="eyebrow pointer-events-none absolute left-4 top-4 rounded-full bg-encre/70 px-3 py-1.5 text-[0.62rem] text-ivoire backdrop-blur">

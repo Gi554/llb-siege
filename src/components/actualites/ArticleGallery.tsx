@@ -19,7 +19,7 @@ export default function ArticleGallery({ items, label }: { items: Media[]; label
               aria-label={`Agrandir : ${m.caption ?? m.alt}`}
               className="group relative block aspect-[4/3] w-full overflow-hidden bg-ivoire"
             >
-              <Image src={m.src} alt={m.alt} fill sizes="(min-width: 768px) 30vw, 50vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+              <Image src={m.src} alt={m.alt} fill sizes="(min-width: 768px) 50vw, 83vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
             </button>
             <p className="mt-2 text-[12px] text-encre/60">{m.caption ?? m.alt}</p>
           </li>

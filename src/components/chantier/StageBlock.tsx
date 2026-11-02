@@ -113,7 +113,7 @@ const StageBlock = forwardRef<HTMLElement, Props>(function StageBlock({ stage, n
                   alt={m.alt}
                   fill
                   quality={80}
-                  sizes={i === 0 ? "(min-width: 768px) 62vw, 100vw" : "(min-width: 768px) 32vw, 100vw"}
+                  sizes={i === 0 ? "(min-width: 768px) 80vw, 160vw" : "(min-width: 768px) 60vw, 160vw"}
                   className="object-cover transition-transform duration-[1.4s] ease-[var(--ease-out-expo)] group-hover:scale-[1.06]"
                 />
                 <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 bg-gradient-to-t from-encre/70 to-transparent p-4 text-left text-xs text-ivoire opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-visible:opacity-100">

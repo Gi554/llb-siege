@@ -85,7 +85,7 @@ export default function Viewpoints({ items }: { items: Viewpoint[] }) {
                   aria-label={`Voir le rendu : ${v.title}`}
                   className="group relative block aspect-[4/3] w-full overflow-hidden rounded-[2px] bg-sable"
                 >
-                  <Image src={v.render.src} alt={v.render.alt} fill sizes="(min-width: 1024px) 32vw, (min-width: 640px) 48vw, 100vw" className="object-cover transition-transform duration-[1.4s] ease-[var(--ease-out-expo)] group-hover:scale-105" />
+                  <Image src={v.render.src} alt={v.render.alt} fill sizes="(min-width: 1024px) 53vw, (min-width: 640px) 80vw, 165vw" className="object-cover transition-transform duration-[1.4s] ease-[var(--ease-out-expo)] group-hover:scale-105" />
                   {/* The half that will hold the site photograph */}
                   <span
                     data-vp-pending

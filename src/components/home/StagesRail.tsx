@@ -127,7 +127,7 @@ export default function StagesRail({ stages }: { stages: Stage[] }) {
               <li key={s.slug} data-sr-item className="w-[220px] shrink-0 snap-start text-center md:w-[240px]">
                 <div className="relative mx-auto aspect-square w-[190px] overflow-hidden rounded-full bg-lin md:w-[210px]">
                   {s.media[0] ? (
-                    <Image src={s.media[0].src} alt={s.media[0].alt} fill sizes="210px" className="object-cover" />
+                    <Image src={s.media[0].src} alt={s.media[0].alt} fill sizes="460px" className="object-cover" />
                   ) : (
                     <span className="absolute inset-0 grid place-items-center rounded-full border-2 border-dashed border-encre/20">
                       <span className="display text-5xl text-encre/25">{String(k + 1).padStart(2, "0")}</span>
