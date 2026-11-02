@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { nav } from "@/content/navigation";
 import { projet } from "@/content/projet";
+import { Logo } from "@/components/ui/LampMark";
 
 export default function Footer() {
   const toTop = () => {
@@ -27,11 +28,9 @@ export default function Footer() {
       </button>
 
       <div className="container-site grid gap-12 pb-12 pt-24 md:grid-cols-12 md:pt-28">
-        <p className="display text-[clamp(2.6rem,4.4vw,3.6rem)] leading-[0.95] md:col-span-4">
-          le siège
-          <br />
-          llb
-        </p>
+        <div className="md:col-span-4">
+          <Logo tone="light" className="h-16 md:h-20" />
+        </div>
 
         <nav aria-label="Pied de page" className="md:col-span-3">
           <p className="font-display text-base font-medium">le projet</p>
