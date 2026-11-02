@@ -1,12 +1,42 @@
-import type { Comparison, NewsItem, Stage, Viewpoint } from "./types";
+import type { Comparison, Media, NewsItem, Stage, Viewpoint } from "./types";
 import { images } from "./projet";
 
-// Only the first stage is real (the architectural file, dated October 2026).
-// Everything flagged `source: "demo"` is placeholder content: no date, no
-// progress figure, no completed work is claimed. It is meant to be replaced
-// from the back-office as the construction advances.
+// The first two stages are real: the existing building, photographed in the
+// LLB funding request of February 2025, and the architectural file of
+// October 2026. Everything flagged `source: "demo"` is placeholder content:
+// no date, no progress figure, no completed work is claimed. It is meant to
+// be replaced from the back-office as the construction advances.
+
+const photo = (file: string, alt: string, width: number, height: number, caption?: string): Media => ({
+  src: `/images/chantier/${file}`,
+  alt,
+  width,
+  height,
+  caption,
+});
+
+/** The two photographs on the cover of the February 2025 funding request. */
+export const existant = {
+  facade: photo("batiment-existant-1.jpg", "Le bâtiment existant du siège : véranda à piliers et toiture posée, sur un terrain en terre battue", 472, 363, "Le bâtiment existant — février 2025"),
+  cour: photo("batiment-existant-2.jpg", "Le bâtiment existant vu depuis la parcelle : murs en parpaings non enduits, toiture en place", 472, 363, "Le bâtiment existant — février 2025"),
+} satisfies Record<string, Media>;
 
 export const stages: Stage[] = [
+  {
+    slug: "batiment-existant",
+    title: "Le bâtiment existant",
+    description: "Le plan de construction a été établi, les fondations posées et le bâtiment élevé jusqu'à la toiture. Les travaux ont ensuite été suspendus au profit du développement des ministères de la LLB-Bénin.",
+    status: "realise",
+    dateLabel: "Février 2025",
+    highlights: [
+      "Plan de construction établi",
+      "Fondations posées",
+      "Construction poursuivie jusqu'à la toiture",
+      "Travaux suspendus au profit des ministères",
+    ],
+    media: [existant.facade, existant.cour],
+    source: "projet",
+  },
   {
     slug: "conception",
     title: "Conception architecturale",
@@ -83,7 +113,15 @@ export const stages: Stage[] = [
   },
 ];
 
+// The first comparison is the featured one.
 export const comparisons: Comparison[] = [
+  {
+    slug: "batiment-existant-futur-siege",
+    title: "Du bâtiment existant au futur siège",
+    before: { ...existant.facade, label: "Bâtiment existant", date: "Février 2025" },
+    after: { ...images.facade2, label: "Projet NPS GROUP", date: "Octobre 2026" },
+    source: "projet",
+  },
   {
     slug: "facade-plan-rendu",
     title: "Façade principale",
