@@ -120,7 +120,7 @@ export default function Header({ announcement = fallback }: { announcement?: { t
             <Logo tone={panel || open ? "light" : "dark"} />
           </Link>
 
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-3 sm:gap-5 lg:gap-8">
             <nav aria-label="Navigation principale" className="hidden items-center gap-8 text-[14px] lg:flex">
               {headerLinks.map((item) => (
                 <Link
@@ -135,9 +135,16 @@ export default function Header({ announcement = fallback }: { announcement?: { t
             </nav>
             <Link
               href="/chantier"
-              className={`pill hidden h-[51px] px-5 text-[15px] sm:inline-flex ${open ? "bg-menthe text-foret" : "bg-foret text-blanc hover:bg-foret-2"}`}
+              className={`pill hidden h-[51px] px-5 text-[15px] xl:inline-flex ${open ? "bg-menthe text-foret" : "bg-foret text-blanc hover:bg-foret-2"}`}
             >
               Suivre le chantier
+            </Link>
+            <Link
+              href="/faire-un-don"
+              aria-current={pathname === "/faire-un-don" ? "page" : undefined}
+              className="pill h-11 bg-or px-4 text-[14px] text-foret hover:bg-ocre sm:h-[51px] sm:px-5 sm:text-[15px]"
+            >
+              Faire un don
             </Link>
             <button
               ref={toggle}

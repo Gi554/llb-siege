@@ -68,6 +68,24 @@ export const SETTINGS = [
     multiline: true,
     max: 400,
   },
+  { key: "don.title", group: "Faire un don", label: "Titre", default: "Bâtissons ensemble le siège.", max: 80 },
+  {
+    key: "don.text",
+    group: "Faire un don",
+    label: "Texte d'appel",
+    default:
+      "Le bâtiment existant s'est élevé jusqu'à la toiture avant que les travaux ne soient suspendus. Votre don permet de reprendre le chantier et d'achever le futur siège de la Ligue pour la Lecture de la Bible à Cotonou.",
+    multiline: true,
+    max: 500,
+  },
+  {
+    key: "don.whatsapp",
+    group: "Faire un don",
+    label: "Numéro WhatsApp",
+    hint: "Numéro béninois, par exemple 01 97 57 20 37. Le bouton « Faire un don » ouvre une conversation avec ce numéro.",
+    default: "0197572037",
+    max: 20,
+  },
 ] as const satisfies readonly SettingField[];
 
 export type SettingKey = (typeof SETTINGS)[number]["key"];
