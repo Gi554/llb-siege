@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   description: "Annonces, comptes rendus et événements liés à la construction du siège de la Ligue pour la Lecture de la Bible à Calavi.",
 };
 
+// Picks up content changed directly in the database (admin changes refresh at once).
+export const revalidate = 300;
+
 export default async function ActualitesPage() {
   const [news, s] = await Promise.all([getNews(), getSettings()]);
   const lead = news.find((n) => n.source !== "demo") ?? news[0];

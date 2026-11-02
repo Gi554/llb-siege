@@ -10,6 +10,9 @@ export const metadata: Metadata = {
     "Perspectives architecturales, plans et photographies du chantier du siège de la Ligue pour la Lecture de la Bible à Calavi.",
 };
 
+// Picks up content changed directly in the database (admin changes refresh at once).
+export const revalidate = 300;
+
 export default async function GaleriePage() {
   const [{ items, espaces, kinds, stages }, s] = await Promise.all([getGallery(), getSettings()]);
   const documented = new Set(items.map((g) => g.etape)).size;

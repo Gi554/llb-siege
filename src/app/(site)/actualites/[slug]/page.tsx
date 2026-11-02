@@ -22,6 +22,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   };
 }
 
+// Picks up content changed directly in the database (admin changes refresh at once).
+export const revalidate = 300;
+
 export default async function ArticlePage({ params }: Params) {
   const found = await getArticle((await params).slug);
   if (!found) notFound();
