@@ -12,7 +12,7 @@ import { getSettings } from "@/lib/settings";
 export const metadata: Metadata = {
   title: "Le projet",
   description:
-    "La vision architecturale du futur siège de la Ligue pour la Lecture de la Bible à Cotonou : intentions, plan, espaces et matériaux du projet signé NPS GROUP.",
+    "La vision architecturale du futur siège de la Ligue pour la Lecture de la Bible à Calavi : intentions, plan, espaces et matériaux du projet signé NPS GROUP.",
 };
 
 export default async function ProjetPage() {

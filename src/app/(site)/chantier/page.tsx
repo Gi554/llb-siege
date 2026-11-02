@@ -8,7 +8,7 @@ import { getStages } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Évolution des travaux",
   description:
-    "Suivez étape par étape la construction du siège de la Ligue pour la Lecture de la Bible à Cotonou : photographies, vidéos et comptes rendus.",
+    "Suivez étape par étape la construction du siège de la Ligue pour la Lecture de la Bible à Calavi : photographies, vidéos et comptes rendus.",
 };
 
 export default async function ChantierPage() {

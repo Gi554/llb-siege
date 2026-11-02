@@ -9,7 +9,7 @@ import { getSettings } from "@/lib/settings";
 
 export const metadata: Metadata = {
   title: "Actualités",
-  description: "Annonces, comptes rendus et événements liés à la construction du siège de la Ligue pour la Lecture de la Bible à Cotonou.",
+  description: "Annonces, comptes rendus et événements liés à la construction du siège de la Ligue pour la Lecture de la Bible à Calavi.",
 };
 
 export default async function ActualitesPage() {
