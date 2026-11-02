@@ -42,7 +42,6 @@ export const gallery: GalleryItem[] = [
   item("facade-detail", images.facadeDetail, "exterieur"),
   item("conference", images.conference, "conference"),
   item("jardin", images.jardin, "jardins"),
-  item("librairie-hd", images.librairieHd, "librairie"),
   item("direction", images.direction, "bureaux"),
   item("cour", images.cour, "cour"),
   item("plan-rdc", images.plan, "plans", "plan"),
@@ -51,7 +50,6 @@ export const gallery: GalleryItem[] = [
   item("facade-2", images.facade2, "exterieur"),
   item("terrasse", images.terrasse, "jardins"),
   item("facades", images.facades, "plans", "plan"),
-  item("facade-1", images.facade1, "exterieur"),
   item("elevation", images.elevation, "plans", "plan"),
   ...[existant.facade, existant.cour].map((media, i) => ({
     ...item(`batiment-existant-${i + 1}`, media, "exterieur", "photo"),
