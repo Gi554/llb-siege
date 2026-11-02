@@ -43,7 +43,7 @@ async function main() {
     }
   }
 
-  for (const c of comparisons) {
+  for (const [i, c] of comparisons.entries()) {
     const data = {
       title: c.title,
       beforeId: await mediaId(c.before.src),
@@ -52,7 +52,7 @@ async function main() {
       afterId: await mediaId(c.after.src),
       afterLabel: c.after.label,
       afterDate: c.after.date ?? null,
-      featured: true,
+      featured: i === 0,
       state: "PUBLISHED",
       source: c.source,
     };

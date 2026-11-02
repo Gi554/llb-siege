@@ -1,8 +1,10 @@
 import type { GalleryItem, GalleryKind, Media } from "./types";
+import { existant } from "./chantier";
 import { images } from "./projet";
 
-// Every image below comes from the architectural file (stage "conception").
-// Site photographs will be added from the back-office with kind "photo".
+// Every image below comes from the architectural file (stage "conception"),
+// except the two photos of the existing building (February 2025 request).
+// Later site photographs are added from the back-office with kind "photo".
 
 export const galleryEspaces = [
   { slug: "exterieur", label: "Façades et rue" },
@@ -50,4 +52,9 @@ export const gallery: GalleryItem[] = [
   item("facades", images.facades, "plans", "plan"),
   item("facade-1", images.facade1, "exterieur"),
   item("elevation", images.elevation, "plans", "plan"),
+  ...[existant.facade, existant.cour].map((media, i) => ({
+    ...item(`batiment-existant-${i + 1}`, media, "exterieur", "photo"),
+    etape: "batiment-existant",
+    dateLabel: "Février 2025",
+  })),
 ];
