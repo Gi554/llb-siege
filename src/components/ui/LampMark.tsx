@@ -1,3 +1,5 @@
+import { useId } from "react";
+
 /** Simple oil-lamp line drawing — a nod to the light of the Word. */
 export default function LampMark({ className = "" }: { className?: string }) {
   return (
@@ -10,19 +12,26 @@ export default function LampMark({ className = "" }: { className?: string }) {
   );
 }
 
-/** Logo: filled lamp disc + stacked lowercase wordmark. */
-export function Logo({ tone = "dark", className = "" }: { tone?: "dark" | "light"; className?: string }) {
-  const light = tone === "light";
+/**
+ * The Ligue's logo, cut from the official artwork: the green disc with the
+ * golden lamp, the wordmark and the green-yellow-red rule. Coordinates are
+ * the artwork's own pixels. The wordmark is a mask so it can turn ivory on
+ * dark backgrounds while the disc and the rule keep their colours.
+ */
+export function Logo({ tone = "dark", className = "h-11" }: { tone?: "dark" | "light"; className?: string }) {
+  const mask = useId();
   return (
-    <span className={`flex items-center gap-2.5 ${className}`}>
-      <span className={`grid h-9 w-9 place-items-center rounded-full ${light ? "bg-menthe text-foret" : "bg-foret text-menthe"}`}>
-        <LampMark className="h-5 w-5" />
-      </span>
-      <span className={`font-display text-[15px] font-medium leading-[0.95] ${light ? "text-ivoire" : "text-foret"}`}>
-        le siège
-        <br />
-        llb · cotonou
-      </span>
-    </span>
+    <svg viewBox="55 157 341 119" className={`w-auto ${className}`} role="img" aria-label="Ligue pour la Lecture de la Bible">
+      <defs>
+        <mask id={mask} style={{ maskType: "alpha" }}>
+          <image href="/brand/llb-texte.png" x="176" y="158" width="220" height="112" />
+        </mask>
+      </defs>
+      <image href="/brand/llb-embleme.png" x="55.3" y="157.3" width="116.5" height="116.5" />
+      <rect x="176" y="158" width="220" height="112" fill={tone === "light" ? "#f1ece0" : "#008d53"} mask={`url(#${mask})`} />
+      <rect x="180" y="271" width="71" height="4" fill="#00814d" />
+      <rect x="251" y="271" width="71" height="4" fill="#fece31" />
+      <rect x="322" y="271" width="71" height="4" fill="#e71b23" />
+    </svg>
   );
 }
